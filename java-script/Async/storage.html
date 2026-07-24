@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Storage Practice</title>
+</head>
+<body>
+
+    <h1>Local Storage and Session Storage Practice</h1>
+
+    <button onclick="saveLocal()">Save to Local Storage</button>
+    <button onclick="getLocal()">Get Local Storage Data</button>
+    <button onclick="removeLocal()">Remove Local Storage Data</button>
+    <button onclick="clearLocal()">Clear Local Storage</button>
+
+    <br><br>
+
+    <button onclick="saveSession()">Save to Session Storage</button>
+    <button onclick="getSession()">Get Session Storage Data</button>
+    <button onclick="removeSession()">Remove Session Storage Data</button>
+    <button onclick="clearSession()">Clear Session Storage</button>
+
+    <script>
+
+        // LOCAL STORAGE
+
+        function saveLocal() {
+            localStorage.setItem("name", "Gunavanth");
+            localStorage.setItem("course", "Frontend Development");
+
+            console.log("Data Saved Successfully");
+
+            console.log("Total Items :", localStorage.length);
+            console.log("First Key :", localStorage.key(0));
+        }
+
+        function getLocal() {
+            console.log("Name :", localStorage.getItem("name"));
+            console.log("Course :", localStorage.getItem("course"));
+        }
+
+        function removeLocal() {
+            localStorage.removeItem("course");
+            console.log("Course Removed");
+        }
+
+        function clearLocal() {
+            localStorage.clear();
+            console.log("Local Storage Cleared");
+        }
+
+
+
+        // SESSION STORAGE
+
+        function saveSession() {
+            sessionStorage.setItem("email", "abc@gmail.com");
+            sessionStorage.setItem("city", "Hyderabad");
+
+            console.log("Session Data Saved");
+
+            console.log("Total Items :", sessionStorage.length);
+            console.log("First Key :", sessionStorage.key(0));
+        }
+
+        function getSession() {
+            console.log("Email :", sessionStorage.getItem("email"));
+            console.log("City :", sessionStorage.getItem("city"));
+        }
+
+        function removeSession() {
+            sessionStorage.removeItem("city");
+            console.log("City Removed");
+        }
+
+        function clearSession() {
+            sessionStorage.clear();
+            console.log("Session Storage Cleared");
+        }
+
+    </script>
+
+</body>
+</html>

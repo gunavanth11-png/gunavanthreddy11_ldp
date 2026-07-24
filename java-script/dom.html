@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Methods</title>
+</head>
+<body>
+
+    <div id="container">
+        <h2>DOM Methods Demo</h2>
+    </div>
+
+    <script>
+
+        const container = document.getElementById("container"); //create element()
+
+        const heading = document.createElement("h1");
+        heading.textContent = "Welcome to JavaScript DOM";
+
+        container.appendChild(heading); //appendchild()
+
+        const para1 = document.createElement("p");  //append()
+        para1.textContent = "This paragraph is added using append().";
+        container.append(para1);
+
+        const title = document.createElement("h3"); //prepend()
+        title.textContent = "DOM Manipulation Methods";
+        container.prepend(title);
+
+        const beforeText = document.createElement("p"); //before()
+        beforeText.textContent = "I am inserted before the heading.";
+        heading.before(beforeText);
+
+        const afterText = document.createElement("p"); //after()
+        afterText.textContent = "I am inserted after the heading.";
+        heading.after(afterText);
+
+        const clonedHeading = heading.cloneNode(true); //cloneNode()
+        container.append(clonedHeading);
+
+        const insertElement = document.createElement("p");  //insertBefore()
+        insertElement.textContent = "Inserted using insertBefore().";
+        container.insertBefore(insertElement, para1);
+
+        const newHeading = document.createElement("h2"); replacechild()
+        newHeading.textContent = "This heading replaced the cloned heading.";
+        container.replaceChild(newHeading, clonedHeading);
+
+        const replacement = document.createElement("h4"); //replaceWith()
+        replacement.textContent = "This element uses replaceWith().";
+        afterText.replaceWith(replacement);
+
+        beforeText.remove();
+
+        container.removeChild(insertElement); //removechild()
+
+    </script>
+
+</body>
+</html>
