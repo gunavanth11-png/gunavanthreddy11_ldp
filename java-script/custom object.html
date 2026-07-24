@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> i am custom object</h1>
+    <script>
+        let car = {    //custom object
+    brand: "Toyota",
+    model: "Innova",
+    year: 2024
+};
+
+console.log(car.brand);
+console.log(car.model);
+
+car.color = "White";
+
+console.log(car);
+function outer() {    //closures
+
+    let name = "Gunavanth";
+
+    function inner() {
+        console.log(name);
+    }
+
+    inner();
+}
+
+outer();
+    </script>
+</body>
+</html>
