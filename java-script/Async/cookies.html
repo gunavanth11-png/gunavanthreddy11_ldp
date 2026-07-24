@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookies and IndexedDB Practice</title>
+</head>
+<body>
+
+<h2>Cookies</h2>
+
+<button onclick="setCookie()">Set Cookie</button>
+<button onclick="getCookie()">Get Cookie</button>
+
+<br><br>
+
+<h2>IndexedDB</h2>
+
+<button onclick="addData()">Add Data</button>
+<button onclick="getData()">Get Data</button>
+
+<script>
+
+// Cookies
+
+function setCookie() {
+    document.cookie = "name=Gunavanth";
+    console.log("Cookie Saved");
+}
+
+function getCookie() {
+    console.log(document.cookie);
+}
+
+
+// IndexedDB
+
+let db;
+
+const request = indexedDB.open("StudentDB", 1);
+
+request.onupgradeneeded = function (event) {
+    db = event.target.result;
+    db.createObjectStore("students", { keyPath: "id" });
+};
+
+request.onsuccess = function (event) {
+    db = event.target.result;
+};
+
+
+// Add Data
+
+function addData() {
+    const transaction = db.transaction("students", "readwrite");
+    const store = transaction.objectStore("students");
+
+    store.add({
+        id: 1,
+        name: "Gunavanth"
+    });
+
+    console.log("Data Added");
+}
+
+
+// Get Data
+
+function getData() {
+    const transaction = db.transaction("students", "readonly");
+    const store = transaction.objectStore("students");
+
+    const result = store.get(1);
+
+    result.onsuccess = function () {
+        console.log(result.result);
+    };
+}
+
+</script>
+
+</body>
+</html>

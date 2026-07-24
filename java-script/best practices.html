@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>best practices</h1>
+  <script>
+    var x = 10;//block scoped declarations
+
+if (true) {
+    var x = 20;
+    console.log("Inside Block:", x);
+}
+
+console.log("Outside Block:", x);
+
+let y = 10;
+
+if (true) {
+    let y = 20;
+    console.log("Inside Block (let):", y);
+}
+
+console.log("Outside Block (let):", y);
+
+const z = 100;
+console.log("Const Value:", z);
+let numbers = [1, 2, 3, 4];// arrow functions
+
+let doubled = numbers.map(num => num * 2);
+
+console.log(doubled);
+
+let even = numbers.filter(num => num % 2 === 0);
+
+console.log(even);
+
+let sum = numbers.reduce((total, num) => total + num, 0);
+
+console.log(sum);
+let person = { //optional chaining
+    age: 22
+};
+
+console.log(person?.name?.first);
+console.log(person?.age);
+let value1 = null; //nullish coalescing 
+let value2 = 0;
+let value3 = "";
+
+console.log(value1 ?? "Default");
+console.log(value2 ?? "Default");
+console.log(value3 ?? "Default");
+let a = null; //Logical assignment operators
+a ??= 100;
+
+console.log(a);
+
+let b = 0;
+b ||= 50;
+
+console.log(b);
+
+let c = 10;
+c &&= 20;
+
+console.log(c);
+let regex = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/; //regular expresssions
+
+let result = regex.exec("Today's date is 2026-07-13");
+
+console.log(result.groups.year);
+console.log(result.groups.month);
+console.log(result.groups.day);
+function getMessage() {                   //Async/Await
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("Hello JavaScript");
+        }, 2000);
+    });
+}
+
+async function display() {
+    let message = await getMessage();
+    console.log(message);
+}
+
+display();
+  </script>
+</body>
+</html>
