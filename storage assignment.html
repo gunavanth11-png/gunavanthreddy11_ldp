@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local and Session Score Counter</title>
+</head>
+<body>
+
+    <h1>Score Counter</h1>
+
+    <h2>Local Score : <span id="localScore">0</span></h2>
+
+    <h2>Session Score : <span id="sessionScore">0</span></h2>
+
+    <button onclick="incrementScore()">
+        Increment Score
+    </button>
+
+    <script>
+        let localScore =
+            Number(localStorage.getItem("localScore")) || 0;
+
+        let sessionScore =
+            Number(sessionStorage.getItem("sessionScore")) || 0;
+
+        document.getElementById("localScore").innerText = localScore;
+        document.getElementById("sessionScore").innerText = sessionScore;
+
+        const incrementScore = () => {
+            localScore++;
+            sessionScore++;
+
+            localStorage.setItem("localScore", localScore);
+
+            sessionStorage.setItem("sessionScore", sessionScore);
+
+            document.getElementById("localScore").innerText = localScore;
+            document.getElementById("sessionScore").innerText = sessionScore;
+        };
+    </script>
+
+</body>
+</html>
