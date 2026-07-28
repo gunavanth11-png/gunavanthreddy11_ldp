@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gunavanth Reddy | Portfolio</title>
+<meta name="description" content="Personal Portfolio Website">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="container">
+
+<h1>Gunavanth Reddy</h1>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a href="#gallery">Gallery</a>
+</nav>
+
+</div>
+</header>
+
+<main>
+
+<section id="home" class="section">
+
+<div class="container hero">
+
+<div class="hero-text">
+
+<h2>Hello, I'm <span>Gunavanth Reddy</span></h2>
+
+<h3>Aspiring Frontend Developer</h3>
+
+<p>
+I am passionate about HTML5, CSS3, Git, GitHub and Responsive Web Design. I enjoy creating clean, modern and responsive websites while continuously improving my frontend development skills.
+</p>
+
+
+<div class="social-links">
+<a href="https://github.com/gunavanth11-png" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/gunavanthreddy220/" target="_blank">LinkedIn</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="https://i.pravatar.cc/400?img=12" alt="Profile">
+</div>
+
+</div>
+
+</section>
+
+<section id="about" class="section">
+
+<div class="container">
+
+<h2>About </h2>
+
+<p class="description">
+I am currently pursuing B.Tech in Computer Science. I am learning HTML, CSS, Git and GitHub. My goal is to become a professional Frontend Developer by building responsive and user-friendly websites.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>Education</h3>
+<p>B.Tech - Computer Science</p>
+</div>
+
+<div class="card">
+<h3>Hobbies</h3>
+<p>Learning • Coding • Problem Solving</p>
+</div>
+
+<div class="card">
+<h3>Career Goal</h3>
+<p>Become a Frontend Developer</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="section">
+
+<div class="container">
+
+<h2>Contact </h2>
+
+<p class="description">
+If you have any questions, internship opportunities, or collaboration ideas, feel free to contact me.
+</p>
+
+<form>
+
+<label for="name">Name</label>
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required>
+
+<label for="email">Email</label>
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required>
+
+<label for="message">Message</label>
+<textarea
+id="message"
+rows="6"
+placeholder="Write your message"
+required></textarea>
+
+<input
+type="submit"
+value="Send Message">
+
+</form>
+
+</div>
+
+</section>
+
+<section id="gallery" class="section">
+
+<div class="container">
+
+<h2>Gallery</h2>
+
+<p class="description">
+Some sample images used to demonstrate responsive gallery layouts.
+</p>
+
+<div class="gallery">
+
+
+<img src="image1.jpg" alt="Gallery Image">
+
+<img src="image2.jpg" alt="Gallery Image">
+
+<img src="image3.jpg" alt="Gallery Image">
+
+<img src="image4.jpg" alt="Gallery Image">
+
+<img src="image5.jpg.jpg" alt="Gallery Image">
+
+<img src="image6.jpg" alt="Gallery Image">
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+<p>&copy; 2026 Gunavanth Reddy | All Rights Reserved</p>
+
+</div>
+
+</footer>
+
+<script>
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main section[id]');
+
+  const updateActiveLink = (activeId) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute('href') === `#${activeId}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const setActiveOnScroll = () => {
+    const offset = 140;
+    let currentId = sections[0]?.id || '';
+    let smallestDistance = Infinity;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top - offset);
+
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        currentId = section.id;
+      }
+    });
+
+    if (currentId) {
+      updateActiveLink(currentId);
+    }
+  };
+
+  window.addEventListener('scroll', setActiveOnScroll, { passive: true });
+  window.addEventListener('load', setActiveOnScroll);
+  setActiveOnScroll();
+</script>
+
+</body>
+</html>
