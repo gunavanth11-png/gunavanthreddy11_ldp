@@ -7,7 +7,7 @@ let sessionScore =
 document.getElementById("localScore").innerText = localScore;
 document.getElementById("sessionScore").innerText = sessionScore;
 
-function incrementScore() {
+const incrementScore = () => {
     localScore++;
     sessionScore++;
 
@@ -16,4 +16,4 @@ function incrementScore() {
 
     document.getElementById("localScore").innerText = localScore;
     document.getElementById("sessionScore").innerText = sessionScore;
-}
+};
