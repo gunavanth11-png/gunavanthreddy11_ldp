@@ -4,22 +4,14 @@ import Typography from "../../atoms/Typography";
 interface SidebarItemProps {
   icon: ReactNode;
   title: string;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-const SidebarItem = ({ icon, title }: SidebarItemProps) => {
+const SidebarItem = ({ icon, title, className, style }: SidebarItemProps) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-        padding: "14px",
-        width: "220px",
-        borderRadius: "10px",
-        border: "1px solid #E5E7EB",
-      }}
-    >
-      <div style={{ fontSize: "22px" }}>{icon}</div>
+    <div className={className} style={style}>
+      <div className="sidebar-icon">{icon}</div>
 
       <Typography
         text={title}
