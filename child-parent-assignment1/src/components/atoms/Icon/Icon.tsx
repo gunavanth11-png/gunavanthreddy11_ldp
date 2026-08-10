@@ -1,5 +1,6 @@
 interface IconProps {
   src: string;
+  alt: string;
   active?: boolean;
   width?: string;
   height?: string;
@@ -9,6 +10,7 @@ interface IconProps {
 
 const Icon = ({
   src,
+  alt,
   active,
   width,
   height,
@@ -18,7 +20,7 @@ const Icon = ({
   return (
     <img
       src={src}
-      alt=""
+      alt={alt}
       style={{
         width,
         height,
@@ -27,5 +29,7 @@ const Icon = ({
     />
   );
 };
+
+export default Icon;
 
 export default Icon;
