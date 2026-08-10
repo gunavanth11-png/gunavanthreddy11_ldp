@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SidebarItem from "./index";
+import homeIcon from "../../../assets/icons/home.svg";
 
 const meta: Meta<typeof SidebarItem> = {
   title: "Molecules/SidebarItem",
@@ -12,7 +13,7 @@ type Story = StoryObj<typeof SidebarItem>;
 
 export const Default: Story = {
   args: {
-    icon: "🏠",
-    title: "house\n",
+    icon: homeIcon,
+    title: "house",
   },
 };
