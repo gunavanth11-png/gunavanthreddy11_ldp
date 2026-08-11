@@ -1,44 +1,39 @@
 import { Avatar as MuiAvatar, Box } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material/styles";
 import CustomTypography from "../../atoms/Typography/Typography";
-import { figmaStyles } from "../../../figmaStyles";
+import { styles } from "../../../utils/styles";
 
-type AvatarProps = {
+type UserProfileCardProps = {
   name: string;
   subText?: string;
   src?: string;
   sx?: SxProps<Theme>;
 };
 
-const CustomAvatar = ({
+const UserProfileCard = ({
   name,
   subText,
-  src = "https://i.pravatar.cc/150?img=12",
+  src,
   sx,
-}: AvatarProps) => {
+}: UserProfileCardProps) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-        ...sx,
-      }}
-    >
+    <Box sx={{ ...styles.userProfileCard, ...sx }}>
       <MuiAvatar
         src={src}
         alt={name}
-        sx={figmaStyles.userAvatar}
+        sx={styles.userProfileAvatar}
       />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+
+      <Box sx={styles.userProfileContent}>
         <CustomTypography
           text={name}
-          sx={figmaStyles.userName}
+          sx={styles.userProfileName}
         />
+
         {subText && (
           <CustomTypography
             text={subText}
-            sx={figmaStyles.userSubtext}
+            sx={styles.userProfileSubtext}
           />
         )}
       </Box>
@@ -46,4 +41,4 @@ const CustomAvatar = ({
   );
 };
 
-export default CustomAvatar;
+export default UserProfileCard;
