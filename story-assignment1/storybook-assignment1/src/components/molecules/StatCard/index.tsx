@@ -1,42 +1,38 @@
-import type { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 import Typography from "../../atoms/Typography";
 
 interface StatCardProps {
   icon: ReactNode;
   title: string;
   value: string;
+  className?: string;
+  style?: CSSProperties;
+  titleStyle?: CSSProperties;
+  valueStyle?: CSSProperties;
 }
 
-const StatCard = ({ icon, title, value }: StatCardProps) => {
+const StatCard = ({
+  icon,
+  title,
+  value,
+  className,
+  style,
+  titleStyle,
+  valueStyle,
+}: StatCardProps) => {
   return (
-    <div
-      style={{
-        width: "220px",
-        padding: "20px",
-        borderRadius: "12px",
-        border: "1px solid #E5E5E5",
-        background: "#fff",
-      }}
-    >
-      <div style={{ fontSize: "28px" }}>
-        {icon}
-      </div>
+    <div className={className} style={style}>
+      {icon}
 
-      <div style={{ marginTop: "16px" }}>
-        <Typography
-          text={title}
-          size="14px"
-          weight={400}
-        />
-      </div>
+      <Typography
+        text={title}
+        style={titleStyle}
+      />
 
-      <div style={{ marginTop: "8px" }}>
-        <Typography
-          text={value}
-          size="22px"
-          weight={700}
-        />
-      </div>
+      <Typography
+        text={value}
+        style={valueStyle}
+      />
     </div>
   );
 };
