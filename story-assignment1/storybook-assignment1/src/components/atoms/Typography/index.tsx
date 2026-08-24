@@ -1,18 +1,29 @@
-interface TypographyProps {
+import React from "react";
+
+interface TypographyProps extends React.HTMLAttributes<HTMLParagraphElement> {
   text: string;
-  size: string;
-  weight: number;
+  size?: string;
+  weight?: number;
+  color?: string;
 }
 
-const Typography = ({ text, size, weight }: TypographyProps) => {
+const Typography = ({
+  text,
+  size = "16px",
+  weight = 500,
+  color = "#333",
+  style,
+  ...props
+}: TypographyProps) => {
   return (
     <p
       style={{
         fontSize: size,
         fontWeight: weight,
-        margin: 0,
-        color: "#2D2D2F",
+        color,
+        ...style,
       }}
+      {...props}
     >
       {text}
     </p>
