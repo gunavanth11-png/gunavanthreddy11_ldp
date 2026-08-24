@@ -1,23 +1,15 @@
 import Icon from "../../atoms/Icon/Icon";
 import Typography from "../../atoms/Typography/Typography";
+import "./IconWithTypography.css";
 
 interface IconWithTypographyProps {
   icon: string;
   text: string;
   active?: boolean;
-
-  gap?: string;
-  height?: string;
-  padding?: string;
-  borderRadius?: string;
-  activeBackgroundColor?: string;
-  inactiveBackgroundColor?: string;
-
   width?: string;
   iconHeight?: string;
   activeFilter?: string;
   inactiveFilter?: string;
-
   color?: string;
   activeColor?: string;
   fontSize?: string;
@@ -30,12 +22,6 @@ const IconWithTypography = ({
   icon,
   text,
   active,
-  gap,
-  height,
-  padding,
-  borderRadius,
-  activeBackgroundColor,
-  inactiveBackgroundColor,
   width,
   iconHeight,
   activeFilter,
@@ -49,17 +35,9 @@ const IconWithTypography = ({
 }: IconWithTypographyProps) => {
   return (
     <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap,
-        height,
-        padding,
-        borderRadius,
-        backgroundColor: active
-          ? activeBackgroundColor
-          : inactiveBackgroundColor,
-      }}
+      className={`icon-with-typography ${
+        active ? "icon-with-typography--active" : ""
+      }`}
     >
       <Icon
         src={icon}
