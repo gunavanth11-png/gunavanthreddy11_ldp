@@ -1,0 +1,32 @@
+.side-nav {
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.side-nav-title {
+  margin-bottom: 24px;
+  padding: 0 14px;
+  text-align: left;
+}
+
+.side-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.side-nav-spacer {
+  flex: 1;
+}
+
+.side-nav-divider {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+  margin-top: 16px;
+}
