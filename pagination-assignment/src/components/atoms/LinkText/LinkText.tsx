@@ -9,6 +9,14 @@ export interface LinkTextProps {
   sx?: SxProps<Theme>;
 }
 
+const getLinkTextStyles = (theme: Theme): SxProps<Theme> => ({
+  color: theme.palette.brand.primaryLink,
+  fontWeight: 500,
+  fontSize: theme.typography.body2.fontSize,
+  fontFamily: theme.typography.fontFamily,
+  cursor: "pointer",
+});
+
 const LinkText = ({ children, href = "#", onClick, sx }: LinkTextProps) => {
   return (
     <Link
@@ -16,13 +24,7 @@ const LinkText = ({ children, href = "#", onClick, sx }: LinkTextProps) => {
       onClick={onClick}
       underline="hover"
       sx={[
-        (theme) => ({
-          color: theme.palette.brand.primaryLink,
-          fontWeight: 500,
-          fontSize: theme.typography.body2.fontSize,
-          fontFamily: theme.typography.fontFamily,
-          cursor: "pointer",
-        }),
+        getLinkTextStyles,
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >
