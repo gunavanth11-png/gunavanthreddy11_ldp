@@ -7,6 +7,17 @@ export interface StatusBadgeProps {
   sx?: SxProps<Theme>;
 }
 
+const getStatusBadgeStyles = (isClear: boolean) => (theme: Theme) => ({
+  height: 28,
+  borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
+  backgroundColor: isClear
+    ? theme.palette.status.clearBg
+    : theme.palette.status.considerBg,
+  color: isClear
+    ? theme.palette.status.clearText
+    : theme.palette.status.considerText,
+});
+
 const StatusBadge = ({ status, sx }: StatusBadgeProps) => {
   const isClear = status === "CLEAR";
 
@@ -14,16 +25,7 @@ const StatusBadge = ({ status, sx }: StatusBadgeProps) => {
     <Chip
       label={status}
       sx={[
-        (theme) => ({
-          height: 28,
-          borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
-          backgroundColor: isClear
-            ? theme.palette.status.clearBg
-            : theme.palette.status.considerBg,
-          color: isClear
-            ? theme.palette.status.clearText
-            : theme.palette.status.considerText,
-        }),
+        getStatusBadgeStyles(isClear),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     />
