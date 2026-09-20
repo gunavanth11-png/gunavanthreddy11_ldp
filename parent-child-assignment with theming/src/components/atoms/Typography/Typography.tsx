@@ -21,16 +21,17 @@ const CustomTypography = ({
   lineHeight,
   sx,
 }: TypographyProps) => {
+  const typographyBaseStyles: SxProps<Theme> = {
+    color,
+    fontSize,
+    fontWeight,
+    lineHeight,
+  };
+
   return (
     <MuiTypography
       variant={variant}
-      sx={{
-        color: color,
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        lineHeight: lineHeight,
-        ...sx,
-      }}
+      sx={{ ...typographyBaseStyles, ...sx }}
     >
       {text}
     </MuiTypography>
