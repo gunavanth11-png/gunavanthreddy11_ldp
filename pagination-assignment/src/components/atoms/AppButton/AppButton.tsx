@@ -11,6 +11,20 @@ export interface AppButtonProps {
   sx?: SxProps<Theme>;
 }
 
+const getAppButtonStyles = (filled: boolean) => (theme: Theme) => ({
+  borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
+  borderColor: filled ? undefined : theme.palette.customBorder.dark,
+  color: filled
+    ? theme.palette.primary.contrastText
+    : theme.palette.text.primary,
+  "&:hover": {
+    borderColor: filled ? undefined : theme.palette.text.secondary,
+    backgroundColor: filled
+      ? theme.palette.primary.dark
+      : theme.palette.background.default,
+  },
+});
+
 const AppButton = ({
   text,
   icon,
@@ -27,19 +41,7 @@ const AppButton = ({
       onClick={onClick}
       disabled={disabled}
       sx={[
-        (theme) => ({
-          borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
-          borderColor: filled ? undefined : theme.palette.customBorder.dark,
-          color: filled
-            ? theme.palette.primary.contrastText
-            : theme.palette.text.primary,
-          "&:hover": {
-            borderColor: filled ? undefined : theme.palette.text.secondary,
-            backgroundColor: filled
-              ? theme.palette.primary.dark
-              : theme.palette.background.default,
-          },
-        }),
+        getAppButtonStyles(filled),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >
