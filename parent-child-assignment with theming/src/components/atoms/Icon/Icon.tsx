@@ -9,20 +9,18 @@ type IconProps = {
 };
 
 const Icon = ({ icon, color, sx }: IconProps) => {
+  const iconBaseStyles: SxProps<Theme> = {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: color || "inherit",
+    "& svg": {
+      color: color || "inherit",
+    },
+  };
+
   return (
-    <Box
-      component="span"
-      sx={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: color || "inherit",
-        "& svg": {
-          color: color || "inherit",
-        },
-        ...sx,
-      }}
-    >
+    <Box component="span" sx={{ ...iconBaseStyles, ...sx }}>
       {icon}
     </Box>
   );
