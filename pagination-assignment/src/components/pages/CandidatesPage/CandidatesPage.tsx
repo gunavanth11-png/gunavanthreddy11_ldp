@@ -3,15 +3,16 @@ import { CANDIDATES } from "../../../data/mockData";
 import CandidatesTemplate from "../../templates/CandidatesTemplate/CandidatesTemplate";
 
 const CandidatesPage = () => {
-  const [search, setSearch] = useState("");
-  const [perPage, setPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [activeNav, setActiveNav] = useState("Candidates");
+  const [search, setSearch] = useState<string>("");
+  const [perPage, setPerPage] = useState<number>(10);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [activeNav, setActiveNav] = useState<string>("Candidates");
 
   let filteredCandidates = CANDIDATES;
 
   if (search.trim() !== "") {
     const searchLower = search.toLowerCase();
+
     filteredCandidates = CANDIDATES.filter((c) => {
       return (
         c.name.toLowerCase().includes(searchLower) ||
@@ -20,14 +21,22 @@ const CandidatesPage = () => {
     });
   }
 
-  const totalPages = Math.max(1, Math.ceil(filteredCandidates.length / perPage));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredCandidates.length / perPage),
+  );
+
   let pageToShow = currentPage;
 
   if (pageToShow > totalPages) pageToShow = totalPages;
   if (pageToShow < 1) pageToShow = 1;
 
   const startIndex = (pageToShow - 1) * perPage;
-  const visibleRows = filteredCandidates.slice(startIndex, startIndex + perPage);
+
+  const visibleRows = filteredCandidates.slice(
+    startIndex,
+    startIndex + perPage,
+  );
 
   const handleSearchChange = (newValue: string) => {
     setSearch(newValue);
