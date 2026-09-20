@@ -12,6 +12,26 @@ export interface AppIconButtonProps {
   sx?: SxProps<Theme>;
 }
 
+const getAppIconButtonStyles = (
+  size: number,
+  borderless: boolean,
+) => (theme: Theme) => ({
+  width: size,
+  height: size,
+  minWidth: size,
+  border: borderless ? "none" : `1px solid ${theme.palette.divider}`,
+  borderRadius: `${theme.shape.borderRadius}px`,
+  color: theme.palette.text.primary,
+  "&:hover": {
+    backgroundColor: theme.palette.background.default,
+    borderColor: borderless ? "none" : theme.palette.customBorder.dark,
+  },
+  "&.Mui-disabled": {
+    color: theme.palette.customBorder.dark,
+    border: borderless ? "none" : `1px solid ${theme.palette.divider}`,
+  },
+});
+
 const AppIconButton = ({
   icon,
   size = 32,
@@ -28,22 +48,7 @@ const AppIconButton = ({
       aria-label={ariaLabel}
       size="small"
       sx={[
-        (theme) => ({
-          width: size,
-          height: size,
-          minWidth: size,
-          border: borderless ? "none" : `1px solid ${theme.palette.divider}`,
-          borderRadius: `${theme.shape.borderRadius}px`,
-          color: theme.palette.text.primary,
-          "&:hover": {
-            backgroundColor: theme.palette.background.default,
-            borderColor: borderless ? "none" : theme.palette.customBorder.dark,
-          },
-          "&.Mui-disabled": {
-            color: theme.palette.customBorder.dark,
-            border: borderless ? "none" : `1px solid ${theme.palette.divider}`,
-          },
-        }),
+        getAppIconButtonStyles(size, borderless),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >
