@@ -1,0 +1,32 @@
+.typography {
+  font-family: Inter, sans-serif;
+  color: #454545;
+}
+
+.typography-title {
+  color: #3218B8;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.typography-body {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.typography-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #121212;
+}
+
+.typography-caption {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8C8C8C;
+}
+
+.typography-body.typography-active {
+  color: #5B3DF5;
+  font-weight: 600;
+}
