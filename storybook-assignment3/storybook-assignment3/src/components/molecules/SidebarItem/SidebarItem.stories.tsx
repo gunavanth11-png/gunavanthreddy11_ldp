@@ -6,13 +6,24 @@ const meta: Meta<typeof SidebarItem> = {
   title: "Components/Molecules/SidebarItem",
   component: SidebarItem,
   tags: ["autodocs"],
+  argTypes: {
+    active: {
+      control: "boolean",
+    },
+    disabled: {
+      control: "boolean",
+    },
+    title: {
+      control: "text",
+    },
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof SidebarItem>;
 
-const HomeIcon = <img src={HomeIconSvg} alt="Home" width={20} height={20} />;
+const HomeIcon = <img src={HomeIconSvg} alt="" />;
 
 const defaultArgs = {
   icon: HomeIcon,
@@ -26,7 +37,14 @@ export const Default: Story = {
 export const Active: Story = {
   args: {
     ...defaultArgs,
-    className: "active",
+    active: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...defaultArgs,
+    disabled: true,
   },
 };
 

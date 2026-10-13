@@ -1,38 +1,56 @@
-import { ReactNode, CSSProperties } from "react";
+import type { ReactNode } from "react";
 import Typography from "../../atoms/Typograpghy/Typograpghy";
 
-interface StatCardProps {
+export type StatCardVariant = "default" | "elevated" | "outlined";
+
+export interface StatCardProps {
   icon: ReactNode;
   title: string;
-  value: string;
+  value: string | number;
+  variant?: StatCardVariant;
   className?: string;
-  style?: CSSProperties;
-  titleStyle?: CSSProperties;
-  valueStyle?: CSSProperties;
 }
 
 const StatCard = ({
   icon,
   title,
   value,
-  className,
-  style,
-  titleStyle,
-  valueStyle,
+  variant = "default",
+  className = "",
 }: StatCardProps) => {
+  const cardClasses = [
+    "stat-card",
+    `stat-card--${variant}`,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className={className} style={style}>
-      {icon}
+    <div className={cardClasses}>
+      <div className="stat-card__icon" aria-hidden="true">
+        {icon}
+      </div>
 
-      <Typography
-        text={title}
-        style={titleStyle}
-      />
+      <div className="stat-card__content">
+        <Typography
+          as="span"
+          className="stat-card__title"
+          text={title}
+          variant="caption"
+          color="secondary"
+          weight="medium"
+        />
 
-      <Typography
-        text={value}
-        style={valueStyle}
-      />
+        <Typography
+          as="h3"
+          className="stat-card__value"
+          text={String(value)}
+          variant="h2"
+          weight="bold"
+          color="primary"
+        />
+      </div>
     </div>
   );
 };

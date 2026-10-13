@@ -1,23 +1,53 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Typography from "../../atoms/Typograpghy/Typograpghy";
 
-interface SidebarItemProps {
+export interface SidebarItemProps {
   icon: ReactNode;
   title: string;
+  active?: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
   className?: string;
-  style?: React.CSSProperties;
 }
 
-const SidebarItem = ({ icon, title, className, style }: SidebarItemProps) => {
+const SidebarItem = ({
+  icon,
+  title,
+  active = false,
+  disabled = false,
+  onClick,
+  className = "",
+}: SidebarItemProps) => {
+  const itemClasses = [
+    "sidebar-item",
+    active ? "sidebar-item--active active" : "",
+    disabled ? "sidebar-item--disabled" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className={className} style={style}>
-      <div className="sidebar-icon">{icon}</div>
+    <button
+      type="button"
+      className={itemClasses}
+      onClick={onClick}
+      disabled={disabled}
+      aria-current={active ? "page" : undefined}
+    >
+      <span className="sidebar-item__icon sidebar-icon" aria-hidden="true">
+        {icon}
+      </span>
 
       <Typography
+        as="span"
+        className="sidebar-item__title"
         text={title}
-        weight={600}
+        variant="body2"
+        weight={active ? "semibold" : "medium"}
+        color={active ? "accent" : "secondary"}
       />
-    </div>
+    </button>
   );
 };
 
