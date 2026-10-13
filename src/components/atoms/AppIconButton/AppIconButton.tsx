@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 export interface AppIconButtonProps {
   icon: ReactNode;
-  size?: number;
+  size?: "small" | "medium" | "large";
   disabled?: boolean;
   borderless?: boolean;
   onClick?: () => void;
@@ -14,9 +14,8 @@ export interface AppIconButtonProps {
 
 const AppIconButton = ({
   icon,
-  size = 32,
+  size = "small",
   disabled = false,
-  borderless = false,
   onClick,
   ariaLabel,
   sx,
@@ -26,26 +25,8 @@ const AppIconButton = ({
       onClick={onClick}
       disabled={disabled}
       aria-label={ariaLabel}
-      size="small"
-      sx={[
-        (theme) => ({
-          width: size,
-          height: size,
-          minWidth: size,
-          border: borderless ? "none" : `1px solid ${theme.palette.divider}`,
-          borderRadius: `${theme.shape.borderRadius}px`,
-          color: theme.palette.text.primary,
-          "&:hover": {
-            backgroundColor: theme.palette.background.default,
-            borderColor: borderless ? "none" : theme.palette.customBorder.dark,
-          },
-          "&.Mui-disabled": {
-            color: theme.palette.customBorder.dark,
-            border: borderless ? "none" : `1px solid ${theme.palette.divider}`,
-          },
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
+      size={size}
+      sx={sx}
     >
       {icon}
     </IconButton>

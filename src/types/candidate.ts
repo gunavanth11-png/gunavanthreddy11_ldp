@@ -8,3 +8,9 @@ export interface Candidate {
   location: string;
   date: string;
 }
+
+export interface Column {
+  id: string;
+  label: string;
+  width?: string;
+}

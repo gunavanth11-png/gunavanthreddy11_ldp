@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { CANDIDATES } from "../../../data/mockData";
 import CandidatesTemplate from "../../templates/CandidatesTemplate/CandidatesTemplate";
+import {
+  DEFAULT_PER_PAGE,
+  DEFAULT_PAGE,
+  DEFAULT_ACTIVE_NAV,
+} from "../../../utils/constants";
 
 const CandidatesPage = () => {
-  const [search, setSearch] = useState("");
-  const [perPage, setPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [activeNav, setActiveNav] = useState("Candidates");
+  const [search, setSearch] = useState<string>("");
+  const [perPage, setPerPage] = useState<number>(DEFAULT_PER_PAGE);
+  const [currentPage, setCurrentPage] = useState<number>(DEFAULT_PAGE);
+  const [activeNav, setActiveNav] = useState<string>(DEFAULT_ACTIVE_NAV);
 
   let filteredCandidates = CANDIDATES;
 

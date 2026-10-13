@@ -7,17 +7,19 @@ export interface IconProps {
   sx?: SxProps<Theme>;
 }
 
+const iconStyles: SxProps<Theme> = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
+
 const Icon = ({ icon, sx }: IconProps) => {
+  const resolvedStyles = sx
+    ? [iconStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : iconStyles;
+
   return (
-    <Box
-      component="span"
-      sx={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        ...sx,
-      }}
-    >
+    <Box component="span" sx={resolvedStyles}>
       {icon}
     </Box>
   );
