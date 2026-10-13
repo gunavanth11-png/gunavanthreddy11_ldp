@@ -77,6 +77,10 @@ export const styles: Record<string, SxProps<Theme>> = {
     justifyContent: "center",
   },
 
+  iconWithTypographyText: {
+    color: "inherit",
+  },
+
   sideNavigation: {
     width: 240,
     height: 720,

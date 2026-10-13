@@ -1,3 +1,4 @@
+import React from "react";
 import { Box } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material/styles";
 import Icon from "../../atoms/Icon/Icon";
@@ -39,7 +40,7 @@ const IconWithTypography = ({
       <CustomTypography
         text={text}
         variant={active ? "subtitle1" : "body1"}
-        sx={{ color: "inherit" }}
+        sx={styles.iconWithTypographyText}
       />
     </Box>
   );
