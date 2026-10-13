@@ -1,0 +1,75 @@
+{
+  "summary": {
+    "termCap": "12 months",
+    "availableCredit": 880000.00,
+    "maxInterestRate": 12.00,
+    "totalAvailableAdvance": 880000.00
+  },
+  "contracts": [
+    {
+      "id": "1",
+      "name": "Contract 1",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 12000.25,
+      "totalFinanced": 0,
+      "totalAvailable": 126722.64
+    },
+    {
+      "id": "3",
+      "name": "Contract 3",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000.00,
+      "totalFinanced": 0,
+      "totalAvailable": 63360.00
+    },
+    {
+      "id": "4",
+      "name": "Contract 4",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000.00,
+      "totalFinanced": 0,
+      "totalAvailable": 63360.00
+    },
+    {
+      "id": "5",
+      "name": "Contract 5",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 5000.00,
+      "totalFinanced": 0,
+      "totalAvailable": 52800.00
+    },
+    {
+      "id": "6",
+      "name": "Contract 6",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 10000.00,
+      "totalFinanced": 0,
+      "totalAvailable": 105600.00
+    }
+  ],
+  "cashKicks": [
+    {
+      "id": "ck1",
+      "name": "Cash Kick 1",
+      "status": "Pending",
+      "type": "Monthly",
+      "perPayment": 18000.25,
+      "totalFinanced": 190082.64,
+      "totalAvailable": 0
+    },
+    {
+      "id": "ck2",
+      "name": "Cash Kick 2",
+      "status": "Pending",
+      "type": "Monthly",
+      "perPayment": 11000.00,
+      "totalFinanced": 116160.00,
+      "totalAvailable": 0
+    }
+  ]
+}
