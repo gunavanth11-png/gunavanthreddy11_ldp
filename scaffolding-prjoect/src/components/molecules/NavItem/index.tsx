@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { BORDER_RADIUS, TRANSITION, FONT_WEIGHT } from '../../../utils/styleConstants';
 
 export interface NavItemProps {
   icon: React.ReactNode;
@@ -16,9 +17,9 @@ const StyledNavItemBox = styled(Box, {
   alignItems: 'center',
   gap: theme.spacing(1.5),
   padding: theme.spacing(1.5, 2),
-  borderRadius: '12px',
+  borderRadius: BORDER_RADIUS.MD,
   cursor: 'pointer',
-  transition: 'all 0.2s ease',
+  transition: TRANSITION.DEFAULT,
   backgroundColor: active ? theme.palette.background.paper : 'transparent',
   border: active ? `1px solid ${theme.palette.border.light}` : '1px solid transparent',
   color: active ? theme.palette.text.primary : theme.palette.text.secondary,
@@ -39,7 +40,7 @@ const IconWrapper = styled(Box, {
 const NavLabelText = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<{ active?: boolean }>(({ active }) => ({
-  fontWeight: active ? 600 : 400,
+  fontWeight: active ? FONT_WEIGHT.SEMI_BOLD : FONT_WEIGHT.REGULAR,
 }));
 
 export const NavItem: React.FC<NavItemProps> = ({ icon, label, active = false, onClick }) => {

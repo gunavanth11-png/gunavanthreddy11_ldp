@@ -3,6 +3,7 @@ import { Paper, Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Button } from '../../atoms/Button';
 import { TEXT_CONSTANTS } from '../../../constants';
+import { BORDER_RADIUS, FONT_WEIGHT } from '../../../utils/styleConstants';
 
 export interface LaunchKickCardProps {
   availableAmount?: string;
@@ -12,7 +13,7 @@ export interface LaunchKickCardProps {
 const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '16px',
+  borderRadius: BORDER_RADIUS.LG,
   padding: theme.spacing(4, 3.5),
   height: '100%',
   display: 'flex',
@@ -29,7 +30,7 @@ const CardContentBox = styled(Box)(({ theme }) => ({
 
 const CardTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
   fontSize: '1.25rem',
 }));
 
@@ -40,7 +41,7 @@ const CardDescription = styled(Typography)(({ theme }) => ({
 
 const AmountHighlight = styled(Box)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 700,
+  fontWeight: FONT_WEIGHT.BOLD,
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({

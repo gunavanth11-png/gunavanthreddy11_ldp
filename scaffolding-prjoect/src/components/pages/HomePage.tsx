@@ -5,6 +5,7 @@ import { DashboardTemplate } from '../templates/DashboardTemplate';
 import { Sidebar } from '../organisms/Sidebar';
 import { Header } from '../organisms/Header';
 import { TEXT_CONSTANTS } from '../../constants';
+import { BORDER_RADIUS } from '../../utils/styleConstants';
 
 export interface HomePageProps {
   onNavigate?: (path: string) => void;
@@ -12,7 +13,7 @@ export interface HomePageProps {
 
 const HomeCardContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  borderRadius: '16px',
+  borderRadius: BORDER_RADIUS.LG,
   padding: theme.spacing(5),
   border: `1px solid ${theme.palette.border.default}`,
   textAlign: 'center',

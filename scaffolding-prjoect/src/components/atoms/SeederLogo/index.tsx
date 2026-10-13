@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, BoxProps } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import { TEXT_CONSTANTS } from '../../../constants';
+import { FONT_WEIGHT, COMPONENT_SIZE } from '../../../utils/styleConstants';
 
 export interface SeederLogoProps extends BoxProps {
   iconSize?: number;
@@ -32,16 +33,16 @@ const LogoText = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'customFontSize',
 })<{ customFontSize?: string }>(({ theme, customFontSize }) => ({
   color: theme.palette.text.primary,
-  fontSize: customFontSize || '1.5rem',
-  fontWeight: 700,
+  fontSize: customFontSize || COMPONENT_SIZE.LOGO_FONT_DEFAULT,
+  fontWeight: FONT_WEIGHT.BOLD,
   fontFamily: theme.typography.fontFamily,
   letterSpacing: '-0.02em',
   lineHeight: 1,
 }));
 
 export const SeederLogo: React.FC<SeederLogoProps> = ({
-  iconSize = 28,
-  fontSize = '1.5rem',
+  iconSize = COMPONENT_SIZE.LOGO_ICON_DEFAULT,
+  fontSize = COMPONENT_SIZE.LOGO_FONT_DEFAULT,
   showText = true,
   ...props
 }) => {

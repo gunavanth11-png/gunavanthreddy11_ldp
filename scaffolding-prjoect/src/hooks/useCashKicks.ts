@@ -1,14 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { MetricSummary } from '../mock/data';
 import { api, parseCurrency } from '../services/api';
+import { DEFAULT_METRIC_SUMMARY } from '../utils/styleConstants';
 
 export const useCashKicks = () => {
-  const [summary, setSummary] = useState<MetricSummary>({
-    termCap: '12 months',
-    availableCredit: '$0.0k',
-    maxInterestRate: '12.00%',
-    totalAvailableAdvance: '$0.00',
-  });
+  const [summary, setSummary] = useState<MetricSummary>(DEFAULT_METRIC_SUMMARY);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -31,7 +27,6 @@ export const useCashKicks = () => {
   const openNewCashKickModal = () => setIsModalOpen(true);
   const closeNewCashKickModal = () => setIsModalOpen(false);
 
-
   const rawCredit = parseCurrency(summary.totalAvailableAdvance);
 
   return {
@@ -44,4 +39,3 @@ export const useCashKicks = () => {
     reloadData: loadSummary,
   };
 };
-

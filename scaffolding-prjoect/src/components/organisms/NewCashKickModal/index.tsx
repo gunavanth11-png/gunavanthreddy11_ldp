@@ -22,8 +22,14 @@ import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '../../atoms/Button';
 import { Contract } from '@/mock/data';
-import { api, formatCurrency } from '@/services/api';
+import { api, formatCurrency, parseCurrency } from '@/services/api';
 import { TEXT_CONSTANTS } from '../../../constants';
+import {
+  BORDER_RADIUS,
+  FONT_WEIGHT,
+  LAYOUT,
+  BUSINESS,
+} from '../../../utils/styleConstants';
 
 export interface NewCashKickModalProps {
   open: boolean;
@@ -37,7 +43,7 @@ const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
   fontSize: '1.5rem',
   paddingBottom: theme.spacing(1),
 }));
@@ -69,11 +75,14 @@ const TableSection = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1.5),
 }));
 
-const StyledModalTableContainer = styled(TableContainer)(({ theme }) => ({
+const StyledModalTableContainer = styled(TableContainer)<{
+  component?: React.ElementType;
+  elevation?: number;
+}>(({ theme }) => ({
   backgroundColor: theme.palette.customBackground.elevation1,
   border: `1px solid ${theme.palette.border.default}`,
-  maxHeight: '260px',
-  borderRadius: '12px',
+  maxHeight: LAYOUT.MODAL_TABLE_MAX_HEIGHT,
+  borderRadius: BORDER_RADIUS.MD,
   overflowY: 'auto',
 }));
 
@@ -93,7 +102,7 @@ const StyledCheckbox = styled(Checkbox)(({ theme }) => ({
 
 const ModalHeaderTableCell = styled(TableCell)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  fontWeight: 500,
+  fontWeight: FONT_WEIGHT.MEDIUM,
 }));
 
 const ModalBodyRow = styled(TableRow)(({ theme }) => ({
@@ -103,7 +112,7 @@ const ModalBodyRow = styled(TableRow)(({ theme }) => ({
 
 const ModalPrimaryCell = styled(TableCell)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 500,
+  fontWeight: FONT_WEIGHT.MEDIUM,
 }));
 
 const ModalCellText = styled(TableCell)(({ theme }) => ({
@@ -119,7 +128,7 @@ const ModalEmptyCell = styled(TableCell)(({ theme }) => ({
 const CalculationCard = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.customBackground.elevation1,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '12px',
+  borderRadius: BORDER_RADIUS.MD,
   padding: theme.spacing(2.5),
   display: 'flex',
   flexDirection: 'column',
@@ -127,7 +136,7 @@ const CalculationCard = styled(Box)(({ theme }) => ({
 }));
 
 const SummaryTitleText = styled(Typography)(({ theme }) => ({
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
   color: theme.palette.text.primary,
 }));
 
@@ -148,12 +157,12 @@ const SummaryLabelText = styled(Typography)(({ theme }) => ({
 
 const SummaryValueText = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
 }));
 
 const RateFeeValueText = styled(Typography)(({ theme }) => ({
   color: theme.palette.status.pendingText,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
 }));
 
 const StyledSummaryDivider = styled(Divider)(({ theme }) => ({
@@ -164,12 +173,12 @@ const StyledSummaryDivider = styled(Divider)(({ theme }) => ({
 
 const TotalPayoutText = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.light,
-  fontWeight: 700,
+  fontWeight: FONT_WEIGHT.BOLD,
 }));
 
 const ExceedWarningText = styled(Typography)(({ theme }) => ({
   color: theme.palette.status.warningText,
-  fontWeight: 500,
+  fontWeight: FONT_WEIGHT.MEDIUM,
   textAlign: 'right',
   marginTop: theme.spacing(1),
 }));
@@ -193,7 +202,7 @@ const LaunchButton = styled(Button, {
 const modalPaperSx = (theme: any) => ({
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '16px',
+  borderRadius: BORDER_RADIUS.LG,
   backgroundImage: 'none',
   padding: theme.spacing(2),
 });
@@ -201,7 +210,7 @@ const modalPaperSx = (theme: any) => ({
 const textFieldInputSx = (theme: any) => ({
   backgroundColor: theme.palette.customBackground.elevation1,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '12px',
+  borderRadius: BORDER_RADIUS.MD,
   color: theme.palette.text.primary,
   '& fieldset': {
     border: 'none',
@@ -252,18 +261,13 @@ export const NewCashKickModal: React.FC<NewCashKickModalProps> = ({
     }
   };
 
-  const parseCurrencyValue = (str: string): number => {
-    const cleaned = str.replace(/[^0-9.]/g, '');
-    return cleaned ? parseFloat(cleaned) : 0;
-  };
-
   const selectedContracts = contracts.filter((c) => selectedIds.includes(c.id));
   const totalPayback = selectedContracts.reduce(
-    (sum, c) => sum + parseCurrencyValue(c.totalAvailable),
+    (sum, c) => sum + parseCurrency(c.totalAvailable),
     0
   );
 
-  const interestRate = 12.0;
+  const interestRate = BUSINESS.INTEREST_RATE;
   const interestFee = totalPayback * (interestRate / 100);
   const totalPayout = Math.max(0, totalPayback - interestFee);
 

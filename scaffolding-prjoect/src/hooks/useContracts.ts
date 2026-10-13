@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Contract } from '../mock/data';
 import { api } from '../services/api';
+import { BUSINESS } from '../utils/styleConstants';
 
 export type TabType = 'myContracts' | 'myCashKicks';
 
@@ -37,7 +38,7 @@ export const useContracts = () => {
     
     setTimeout(() => {
       setIsSyncing(false);
-    }, 600);
+    }, BUSINESS.SYNC_DELAY_MS);
   }, [loadData]);
 
   return {
@@ -50,4 +51,3 @@ export const useContracts = () => {
     reloadData: loadData,
   };
 };
-

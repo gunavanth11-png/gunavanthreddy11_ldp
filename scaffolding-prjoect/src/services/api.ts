@@ -1,20 +1,9 @@
 import { Contract, MetricSummary } from '../mock/data';
+import { formatCurrency, parseCurrency } from '../utils/currency';
 
 const BASE_URL = 'http://localhost:8000';
 
-export const formatCurrency = (val: number): string => {
-  if (val === 0) return '—';
-
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  }).format(val);
-};
-
-export const parseCurrency = (str: string): number => {
-  const cleaned = str.replace(/[^0-9.]/g, '');
-  return cleaned ? parseFloat(cleaned) : 0;
-};
+export { formatCurrency, parseCurrency };
 
 export const api = {
   getSummary: async (): Promise<MetricSummary> => {

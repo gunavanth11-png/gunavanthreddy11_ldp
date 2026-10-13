@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { BORDER_RADIUS, TRANSITION, FONT_WEIGHT } from '../../../utils/styleConstants';
 
 export interface TabPillProps {
   label: string;
@@ -15,10 +16,10 @@ const StyledTab = styled(Box, {
   alignItems: 'center',
   justifyContent: 'center',
   padding: theme.spacing(1, 2.5),
-  borderRadius: '12px',
+  borderRadius: BORDER_RADIUS.MD,
   cursor: 'pointer',
   userSelect: 'none',
-  transition: 'all 0.2s ease',
+  transition: TRANSITION.DEFAULT,
   backgroundColor: active ? theme.palette.secondary.dark : theme.palette.customBackground.elevation1,
   border: active ? `1px solid ${theme.palette.primary.main}` : `1px solid ${theme.palette.border.default}`,
   color: active ? theme.palette.text.primary : theme.palette.text.secondary,
@@ -31,7 +32,7 @@ const StyledTab = styled(Box, {
 const StyledTabTypography = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<{ active?: boolean }>(({ active }) => ({
-  fontWeight: active ? 600 : 400,
+  fontWeight: active ? FONT_WEIGHT.SEMI_BOLD : FONT_WEIGHT.REGULAR,
 }));
 
 export const TabPill: React.FC<TabPillProps> = ({ label, active = false, onClick }) => {

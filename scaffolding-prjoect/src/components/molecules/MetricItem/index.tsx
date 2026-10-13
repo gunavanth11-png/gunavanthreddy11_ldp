@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { IconBox } from '../../atoms/IconBox';
 import { TEXT_CONSTANTS } from '../../../constants';
+import { ICON_SIZE, FONT_WEIGHT } from '../../../utils/styleConstants';
 
 export interface MetricItemProps {
   icon: React.ReactNode;
@@ -27,18 +28,18 @@ const LabelRow = styled(Box)(({ theme }) => ({
 
 const LabelText = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  fontWeight: 400,
+  fontWeight: FONT_WEIGHT.REGULAR,
 }));
 
 const StyledInfoIcon = styled(InfoOutlinedIcon)(({ theme }) => ({
-  fontSize: 15,
+  fontSize: ICON_SIZE.XS,
   color: theme.palette.text.disabled,
   cursor: 'pointer',
 }));
 
 const ValueText = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
 }));
 
 export const MetricItem: React.FC<MetricItemProps> = ({

@@ -7,6 +7,7 @@ import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
 import { MetricItem } from '../../molecules/MetricItem';
 import { MetricSummary } from '@/mock/data';
 import { TEXT_CONSTANTS } from '../../../constants';
+import { BORDER_RADIUS, ICON_SIZE } from '../../../utils/styleConstants';
 
 export interface MetricsBannerProps {
   summary: MetricSummary;
@@ -15,7 +16,7 @@ export interface MetricsBannerProps {
 const BannerPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '16px',
+  borderRadius: BORDER_RADIUS.LG,
   padding: theme.spacing(4, 3.5),
   height: '100%',
   display: 'flex',
@@ -32,17 +33,17 @@ const BannerItemsBox = styled(Box)(({ theme }) => ({
 
 const CalendarIcon = styled(CalendarTodayOutlinedIcon)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontSize: 22,
+  fontSize: ICON_SIZE.LG,
 }));
 
 const CreditIcon = styled(FileDownloadOutlinedIcon)(({ theme }) => ({
   color: theme.palette.status.successText,
-  fontSize: 24,
+  fontSize: ICON_SIZE.XL,
 }));
 
 const PercentIcon = styled(PercentOutlinedIcon)(({ theme }) => ({
   color: theme.palette.status.pendingText,
-  fontSize: 22,
+  fontSize: ICON_SIZE.LG,
 }));
 
 export const MetricsBanner: React.FC<MetricsBannerProps> = ({ summary }) => {

@@ -7,6 +7,13 @@ import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
 import { NavItem } from '../../molecules/NavItem';
 import { SeederLogo } from '../../atoms/SeederLogo';
 import { TEXT_CONSTANTS } from '../../../constants';
+import {
+  LAYOUT,
+  BORDER_RADIUS,
+  TRANSITION,
+  ICON_SIZE,
+  FONT_WEIGHT,
+} from '../../../utils/styleConstants';
 
 export interface SidebarProps {
   activePath?: string;
@@ -14,7 +21,7 @@ export interface SidebarProps {
 }
 
 const SidebarContainer = styled(Box)(({ theme }) => ({
-  width: 250,
+  width: LAYOUT.SIDEBAR_WIDTH,
   height: '100vh',
   backgroundColor: theme.palette.customBackground.sidebar,
   borderRight: `1px solid ${theme.palette.border.subtle}`,
@@ -25,7 +32,7 @@ const SidebarContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
-  zIndex: 1200,
+  zIndex: LAYOUT.SIDEBAR_Z_INDEX,
 }));
 
 const SidebarTopSection = styled(Box)(({ theme }) => ({
@@ -45,11 +52,11 @@ const NavGroup = styled(Box)(({ theme }) => ({
 }));
 
 const StyledHomeIcon = styled(HomeOutlinedIcon)({
-  fontSize: 20,
+  fontSize: ICON_SIZE.MD,
 });
 
 const StyledGridIcon = styled(GridViewOutlinedIcon)({
-  fontSize: 20,
+  fontSize: ICON_SIZE.MD,
 });
 
 const BottomActionBox = styled(Box)(({ theme }) => ({
@@ -59,8 +66,8 @@ const BottomActionBox = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1.5, 2),
   color: theme.palette.text.secondary,
   cursor: 'pointer',
-  borderRadius: '12px',
-  transition: 'all 0.2s ease',
+  borderRadius: BORDER_RADIUS.MD,
+  transition: TRANSITION.DEFAULT,
   '&:hover': {
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
@@ -68,12 +75,12 @@ const BottomActionBox = styled(Box)(({ theme }) => ({
 }));
 
 const StyledBoltIcon = styled(ElectricBoltOutlinedIcon)(({ theme }) => ({
-  fontSize: 18,
+  fontSize: ICON_SIZE.SM,
   color: theme.palette.text.secondary,
 }));
 
 const BottomActionText = styled(Typography)({
-  fontWeight: 400,
+  fontWeight: FONT_WEIGHT.REGULAR,
 });
 
 export const Sidebar: React.FC<SidebarProps> = ({

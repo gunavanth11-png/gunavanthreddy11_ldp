@@ -1,19 +1,20 @@
 import React from 'react';
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
+import { BORDER_RADIUS, FONT_WEIGHT, TRANSITION, SHADOW } from '../../../utils/styleConstants';
 
 export interface ButtonProps extends MuiButtonProps {
   children: React.ReactNode;
 }
 
 const StyledButton = styled(MuiButton)<ButtonProps>(({ theme, variant }) => ({
-  borderRadius: '12px',
+  borderRadius: BORDER_RADIUS.MD,
   padding: '12px 24px',
-  fontSize: '0.875rem',
-  fontWeight: 600,
+  fontSize: theme.typography.body1.fontSize,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
   textTransform: 'none',
-  boxShadow: 'none',
-  transition: 'all 0.2s ease-in-out',
+  boxShadow: SHADOW.NONE,
+  transition: TRANSITION.EASE_IN_OUT,
   ...(variant === 'contained' && {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
@@ -39,4 +40,3 @@ export const Button: React.FC<ButtonProps> = ({ children, variant = 'contained',
     </StyledButton>
   );
 };
-

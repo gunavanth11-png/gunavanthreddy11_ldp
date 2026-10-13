@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { LAYOUT } from '../../utils/styleConstants';
 
 export interface DashboardTemplateProps {
   sidebar: React.ReactNode;
@@ -16,7 +17,7 @@ const TemplateContainer = styled(Box)(({ theme }) => ({
 
 const MainContentArea = styled(Box)(({ theme }) => ({
   flexGrow: 1,
-  marginLeft: '250px',
+  marginLeft: `${LAYOUT.SIDEBAR_WIDTH}px`,
   minWidth: 0,
   height: '100vh',
   overflow: 'auto',
@@ -27,7 +28,7 @@ const MainContentArea = styled(Box)(({ theme }) => ({
 const StickyHeaderBox = styled(Box)(({ theme }) => ({
   position: 'sticky',
   top: 0,
-  zIndex: 10,
+  zIndex: LAYOUT.STICKY_HEADER_Z_INDEX,
   backgroundColor: theme.palette.background.default,
   padding: theme.spacing(4.5, 6, 2),
 }));

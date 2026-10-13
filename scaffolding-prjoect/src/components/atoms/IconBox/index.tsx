@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { BORDER_RADIUS } from '../../../utils/styleConstants';
 
 export interface IconBoxProps {
   children: React.ReactNode;
@@ -12,7 +13,7 @@ const StyledIconBox = styled(Box, {
 })<{ bg?: string }>(({ theme, bg }) => ({
   width: theme.spacing(6.5),
   height: theme.spacing(6.5),
-  borderRadius: '12px',
+  borderRadius: BORDER_RADIUS.MD,
   backgroundColor: bg || theme.palette.icon.boxBg,
   display: 'flex',
   alignItems: 'center',

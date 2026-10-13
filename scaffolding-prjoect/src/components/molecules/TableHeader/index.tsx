@@ -6,6 +6,7 @@ import SyncIcon from '@mui/icons-material/Sync';
 import { TabPill } from '../../atoms/Tab';
 import { TabType } from '@/hooks/useContracts';
 import { TEXT_CONSTANTS } from '../../../constants';
+import { ICON_SIZE, BORDER_RADIUS, TRANSITION, FONT_WEIGHT } from '../../../utils/styleConstants';
 
 export interface TableHeaderProps {
   activeTab: TabType;
@@ -35,11 +36,11 @@ const TitleBox = styled(Box)(({ theme }) => ({
 
 const HeaderTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
 }));
 
 const StyledInfoIcon = styled(InfoOutlinedIcon)(({ theme }) => ({
-  fontSize: 18,
+  fontSize: ICON_SIZE.SM,
   color: theme.palette.text.disabled,
   cursor: 'pointer',
 }));
@@ -51,8 +52,8 @@ const SyncButton = styled(Box)(({ theme }) => ({
   color: theme.palette.primary.light,
   cursor: 'pointer',
   padding: theme.spacing(0.75, 1.5),
-  borderRadius: '8px',
-  transition: 'background-color 0.2s',
+  borderRadius: BORDER_RADIUS.SM,
+  transition: TRANSITION.BG_ONLY,
   '&:hover': {
     backgroundColor: alpha(theme.palette.primary.main, 0.1),
   },
@@ -61,7 +62,7 @@ const SyncButton = styled(Box)(({ theme }) => ({
 const AnimatedSyncIcon = styled(SyncIcon, {
   shouldForwardProp: (prop) => prop !== 'isSyncing',
 })<{ isSyncing?: boolean }>(({ isSyncing }) => ({
-  fontSize: 18,
+  fontSize: ICON_SIZE.SM,
   animation: isSyncing ? 'spin 1s linear infinite' : 'none',
   '@keyframes spin': {
     '0%': { transform: 'rotate(0deg)' },
@@ -71,7 +72,7 @@ const AnimatedSyncIcon = styled(SyncIcon, {
 
 const SyncText = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.light,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
 }));
 
 const TabsRow = styled(Box)(({ theme }) => ({

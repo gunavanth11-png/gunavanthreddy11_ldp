@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { UserAvatar } from '../../atoms/Avatar';
 import { TEXT_CONSTANTS } from '../../../constants';
+import { FONT_WEIGHT } from '../../../utils/styleConstants';
 
 export interface HeaderProps {
   title?: string;
@@ -25,13 +26,12 @@ const TitleContainer = styled(Box)(({ theme }) => ({
 
 const StyledHeaderTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 700,
-  fontSize: '2.25rem',
+  fontWeight: FONT_WEIGHT.BOLD,
 }));
 
 const StyledHeaderSubtitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  fontWeight: 400,
+  fontWeight: FONT_WEIGHT.REGULAR,
 }));
 
 export const Header: React.FC<HeaderProps> = ({

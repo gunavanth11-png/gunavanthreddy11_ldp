@@ -14,6 +14,13 @@ import { StatusChip } from '../../atoms/Chip';
 import { Contract } from '@/mock/data';
 import { TabType } from '@/hooks/useContracts';
 import { TEXT_CONSTANTS } from '../../../constants';
+import {
+  BORDER_RADIUS,
+  LAYOUT,
+  FONT_WEIGHT,
+  TRANSITION,
+  OVERLAY,
+} from '../../../utils/styleConstants';
 
 export interface ContractsTableProps {
   contracts: Contract[];
@@ -26,7 +33,7 @@ export interface ContractsTableProps {
 const TablePaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '16px',
+  borderRadius: BORDER_RADIUS.LG,
   padding: theme.spacing(3.5),
 }));
 
@@ -37,7 +44,7 @@ const StyledTableContainer = styled(TableContainer)({
 });
 
 const StyledTable = styled(Table)({
-  minWidth: 650,
+  minWidth: LAYOUT.TABLE_MIN_WIDTH,
 });
 
 const StyledHeadRow = styled(TableRow)(({ theme }) => ({
@@ -50,7 +57,7 @@ const StyledHeadRow = styled(TableRow)(({ theme }) => ({
 
 const HeaderTableCell = styled(TableCell)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  fontWeight: 500,
+  fontWeight: FONT_WEIGHT.MEDIUM,
 }));
 
 const BodyTableRow = styled(TableRow)(({ theme }) => ({
@@ -60,15 +67,15 @@ const BodyTableRow = styled(TableRow)(({ theme }) => ({
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
   },
-  transition: 'background-color 0.2s',
+  transition: TRANSITION.BG_ONLY,
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    backgroundColor: OVERLAY.HOVER_SUBTLE,
   },
 }));
 
 const PrimaryTableCell = styled(TableCell)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 500,
+  fontWeight: FONT_WEIGHT.MEDIUM,
 }));
 
 const PrimaryTextCell = styled(TableCell)(({ theme }) => ({

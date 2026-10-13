@@ -1,16 +1,17 @@
 import React from 'react';
 import { Chip as MuiChip, ChipProps as MuiChipProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { BORDER_RADIUS, FONT_WEIGHT, COMPONENT_SIZE } from '../../../utils/styleConstants';
 
 export interface StatusChipProps extends Omit<MuiChipProps, 'color'> {
   status?: 'Available' | 'Pending' | 'Financed';
 }
 
 const StyledChip = styled(MuiChip)<StatusChipProps>(({ theme, status }) => ({
-  borderRadius: '6px',
-  fontWeight: 500,
-  fontSize: '0.75rem',
-  height: '26px',
+  borderRadius: BORDER_RADIUS.XS,
+  fontWeight: FONT_WEIGHT.MEDIUM,
+  fontSize: theme.typography.caption.fontSize,
+  height: COMPONENT_SIZE.CHIP_HEIGHT,
   padding: '0 4px',
   ...(status === 'Available' && {
     backgroundColor: theme.palette.status.availableBg,
@@ -30,4 +31,3 @@ const StyledChip = styled(MuiChip)<StatusChipProps>(({ theme, status }) => ({
 export const StatusChip: React.FC<StatusChipProps> = ({ status = 'Available', label, ...props }) => {
   return <StyledChip status={status} label={label || status} {...props} />;
 };
-

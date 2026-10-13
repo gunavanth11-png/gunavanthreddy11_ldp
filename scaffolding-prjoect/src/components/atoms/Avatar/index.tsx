@@ -5,6 +5,16 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { TEXT_CONSTANTS } from '../../../constants';
+import {
+  BORDER_RADIUS,
+  ICON_SIZE,
+  COMPONENT_SIZE,
+  TRANSITION,
+  SHADOW,
+  OVERLAY,
+  LAYOUT,
+  FONT_WEIGHT,
+} from '../../../utils/styleConstants';
 
 export interface UserAvatarProps {
   src?: string;
@@ -18,16 +28,16 @@ const AvatarTriggerBox = styled(Box)(({ theme }) => ({
   gap: theme.spacing(0.5),
   cursor: 'pointer',
   padding: theme.spacing(0.5, 1),
-  borderRadius: '20px',
-  transition: 'background-color 0.2s ease',
+  borderRadius: BORDER_RADIUS.PILL,
+  transition: TRANSITION.BG_ONLY,
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: OVERLAY.HOVER_LIGHT,
   },
 }));
 
 const StyledAvatar = styled(MuiAvatar)(({ theme }) => ({
-  width: 36,
-  height: 36,
+  width: COMPONENT_SIZE.AVATAR,
+  height: COMPONENT_SIZE.AVATAR,
   border: `1px solid ${theme.palette.border.light}`,
 }));
 
@@ -35,9 +45,9 @@ const StyledArrowIcon = styled(KeyboardArrowDownIcon, {
   shouldForwardProp: (prop) => prop !== 'open',
 })<{ open?: boolean }>(({ theme, open }) => ({
   color: theme.palette.text.secondary,
-  fontSize: 18,
+  fontSize: ICON_SIZE.SM,
   transform: open ? 'rotate(180deg)' : 'none',
-  transition: 'transform 0.2s ease',
+  transition: TRANSITION.TRANSFORM,
 }));
 
 const UserInfoHeader = styled(Box)(({ theme }) => ({
@@ -54,13 +64,13 @@ const UserTextContainer = styled(Box)({
 
 const UserNameText = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontWeight: 600,
+  fontWeight: FONT_WEIGHT.SEMI_BOLD,
   lineHeight: 1.2,
 }));
 
 const EditProfileText = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.light,
-  fontWeight: 500,
+  fontWeight: FONT_WEIGHT.MEDIUM,
   cursor: 'pointer',
   '&:hover': {
     textDecoration: 'underline',
@@ -77,9 +87,9 @@ const MenuItem = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
   padding: theme.spacing(1, 0),
   cursor: 'pointer',
-  fontSize: '0.875rem',
-  fontWeight: 400,
-  transition: 'color 0.2s ease',
+  fontSize: theme.typography.body1.fontSize,
+  fontWeight: FONT_WEIGHT.REGULAR,
+  transition: TRANSITION.COLOR_ONLY,
   '&:hover': {
     color: theme.palette.text.primary,
   },
@@ -91,10 +101,10 @@ const MenuItemWithIcon = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1.5),
   padding: theme.spacing(1, 0),
   cursor: 'pointer',
-  fontSize: '0.875rem',
-  fontWeight: 400,
+  fontSize: theme.typography.body1.fontSize,
+  fontWeight: FONT_WEIGHT.REGULAR,
   color: theme.palette.text.secondary,
-  transition: 'color 0.2s ease',
+  transition: TRANSITION.COLOR_ONLY,
   '&:hover': {
     color: theme.palette.text.primary,
   },
@@ -108,23 +118,23 @@ const LogoutMenuItem = styled(MenuItemWithIcon)(({ theme }) => ({
 }));
 
 const MenuIcon = styled(TuneOutlinedIcon)(({ theme }) => ({
-  fontSize: 18,
+  fontSize: ICON_SIZE.SM,
   color: theme.palette.text.secondary,
 }));
 
 const LogoutIcon = styled(LogoutOutlinedIcon)({
-  fontSize: 18,
+  fontSize: ICON_SIZE.SM,
   color: 'inherit',
 });
 
 const popoverPaperSx = (theme: any) => ({
   backgroundColor: theme.palette.background.paper,
   border: `1px solid ${theme.palette.border.default}`,
-  borderRadius: '16px',
-  width: '220px',
+  borderRadius: BORDER_RADIUS.LG,
+  width: LAYOUT.POPOVER_WIDTH,
   padding: theme.spacing(2),
   marginTop: theme.spacing(1),
-  boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.5)',
+  boxShadow: SHADOW.POPOVER,
   backgroundImage: 'none',
 });
 
