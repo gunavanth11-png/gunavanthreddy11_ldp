@@ -10,6 +10,7 @@ import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
 import type { SxProps, Theme } from "@mui/material/styles";
 import NavItem from "../../molecules/NavItem/NavItem";
 import UserProfile from "../../molecules/UserProfile/UserProfile";
+import { DEFAULT_ACTIVE_NAV, APP_LOGO_TEXT, NAV_LABELS } from "../../../utils/constants";
 
 export interface MenuItem {
   label: string;
@@ -17,13 +18,13 @@ export interface MenuItem {
 }
 
 const DEFAULT_MENU_ITEMS: MenuItem[] = [
-  { label: "Home", icon: <GridViewOutlinedIcon fontSize="small" /> },
-  { label: "Candidates", icon: <PeopleOutlineOutlinedIcon fontSize="small" /> },
-  { label: "Adverse Actions", icon: <GavelOutlinedIcon fontSize="small" /> },
-  { label: "Logs", icon: <DescriptionOutlinedIcon fontSize="small" /> },
-  { label: "Analytics", icon: <BarChartOutlinedIcon fontSize="small" /> },
-  { label: "Account", icon: <ManageAccountsOutlinedIcon fontSize="small" /> },
-  { label: "Screenings", icon: <CreditCardOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.HOME, icon: <GridViewOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.CANDIDATES, icon: <PeopleOutlineOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.ADVERSE_ACTIONS, icon: <GavelOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.LOGS, icon: <DescriptionOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.ANALYTICS, icon: <BarChartOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.ACCOUNT, icon: <ManageAccountsOutlinedIcon fontSize="small" /> },
+  { label: NAV_LABELS.SCREENINGS, icon: <CreditCardOutlinedIcon fontSize="small" /> },
 ];
 
 export interface SidebarProps {
@@ -33,46 +34,56 @@ export interface SidebarProps {
   sx?: SxProps<Theme>;
 }
 
+const sidebarContainerStyles: SxProps<Theme> = (theme) => ({
+  width: 240,
+  height: "100vh",
+  backgroundColor: theme.palette.background.paper,
+  borderRight: `1px solid ${theme.palette.divider}`,
+  display: "flex",
+  flexDirection: "column",
+  flexShrink: 0,
+});
+
+const logoBoxStyles: SxProps<Theme> = {
+  px: 3,
+  pt: 3,
+  pb: 2.5,
+};
+
+const logoTextStyles: SxProps<Theme> = (theme) => ({
+  color: theme.palette.brand.logo,
+});
+
+const menuContainerStyles: SxProps<Theme> = {
+  px: 1.5,
+  display: "flex",
+  flexDirection: "column",
+  gap: 0.5,
+};
+
+const spacerStyles: SxProps<Theme> = {
+  flexGrow: 1,
+};
+
 const Sidebar = ({
-  activeLabel = "Candidates",
+  activeLabel = DEFAULT_ACTIVE_NAV,
   onSelectNav,
   menuItems = DEFAULT_MENU_ITEMS,
   sx,
 }: SidebarProps) => {
+  const containerStyles = sx
+    ? [sidebarContainerStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : sidebarContainerStyles;
+
   return (
-    <Box
-      sx={[
-        (theme) => ({
-          width: 240,
-          height: "100vh",
-          backgroundColor: theme.palette.background.paper,
-          borderRight: `1px solid ${theme.palette.divider}`,
-          display: "flex",
-          flexDirection: "column",
-          flexShrink: 0,
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-    >
-      <Box sx={{ px: 3, pt: 3, pb: 2.5 }}>
-        <Typography
-          variant="h6"
-          sx={(theme) => ({
-            color: theme.palette.brand.logo,
-          })}
-        >
-          RECRUIT
+    <Box sx={containerStyles}>
+      <Box sx={logoBoxStyles}>
+        <Typography variant="h6" sx={logoTextStyles}>
+          {APP_LOGO_TEXT}
         </Typography>
       </Box>
 
-      <Box
-        sx={{
-          px: 1.5,
-          display: "flex",
-          flexDirection: "column",
-          gap: 0.5,
-        }}
-      >
+      <Box sx={menuContainerStyles}>
         {menuItems.map((item) => (
           <NavItem
             key={item.label}
@@ -84,7 +95,7 @@ const Sidebar = ({
         ))}
       </Box>
 
-      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={spacerStyles} />
 
       <UserProfile />
     </Box>

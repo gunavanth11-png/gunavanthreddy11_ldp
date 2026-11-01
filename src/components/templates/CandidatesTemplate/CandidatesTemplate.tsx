@@ -7,6 +7,7 @@ import PageHeader from "../../organisms/PageHeader/PageHeader";
 import TableToolbar from "../../organisms/TableToolbar/TableToolbar";
 import CandidateTable from "../../organisms/CandidateTable/CandidateTable";
 import TableFooter from "../../organisms/TableFooter/TableFooter";
+import { DEFAULT_ACTIVE_NAV } from "../../../utils/constants";
 
 export interface CandidatesTemplateProps {
   search: string;
@@ -23,6 +24,33 @@ export interface CandidatesTemplateProps {
   sx?: SxProps<Theme>;
 }
 
+const templateRootStyles: SxProps<Theme> = (theme) => ({
+  display: "flex",
+  height: "100vh",
+  width: "100vw",
+  backgroundColor: theme.palette.background.default,
+  overflow: "hidden",
+});
+
+const templateMainStyles: SxProps<Theme> = {
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  overflow: "hidden",
+};
+
+const templatePaperStyles: SxProps<Theme> = (theme) => ({
+  mx: 3,
+  mb: 3,
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  borderRadius: "14px",
+  border: `1px solid ${theme.palette.divider}`,
+  backgroundColor: theme.palette.background.paper,
+  overflow: "hidden",
+});
+
 const CandidatesTemplate = ({
   search,
   onSearchChange,
@@ -33,49 +61,27 @@ const CandidatesTemplate = ({
   totalPages,
   onPerPageChange,
   onPageChange,
-  activeNav = "Candidates",
+  activeNav = DEFAULT_ACTIVE_NAV,
   onSelectNav,
   sx,
 }: CandidatesTemplateProps) => {
+  const rootStyles = sx
+    ? [templateRootStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : templateRootStyles;
+
   return (
-    <Box
-      sx={[
-        (theme) => ({
-          display: "flex",
-          height: "100vh",
-          width: "100vw",
-          backgroundColor: theme.palette.background.default,
-          overflow: "hidden",
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-    >
+    <Box sx={rootStyles}>
       <Sidebar activeLabel={activeNav} onSelectNav={onSelectNav} />
 
       <Box
         component="main"
-        sx={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-        }}
+        sx={templateMainStyles}
       >
         <PageHeader />
 
         <Paper
           elevation={0}
-          sx={(theme) => ({
-            mx: 3,
-            mb: 3,
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            borderRadius: "14px",
-            border: `1px solid ${theme.palette.divider}`,
-            backgroundColor: theme.palette.background.paper,
-            overflow: "hidden",
-          })}
+          sx={templatePaperStyles}
         >
           <TableToolbar
             search={search}

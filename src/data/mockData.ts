@@ -1,4 +1,5 @@
 import type { Candidate, Status } from "../types/candidate";
+import { STATUS_CLEAR, STATUS_CONSIDER } from "../utils/constants";
 
 const NAMES = [
   "John Smith", "Serene", "Walsh", "Maurizia", "Kendre", "Erastus",
@@ -10,7 +11,12 @@ const LOCATIONS = [
   "Sharingol", "Lianyun", "Taboao da Serra", "Veseli nad Moravou",
 ];
 
-const STATUSES: Status[] = ["CLEAR", "CLEAR", "CLEAR", "CONSIDER"];
+const STATUSES: Status[] = [
+  STATUS_CLEAR,
+  STATUS_CLEAR,
+  STATUS_CLEAR,
+  STATUS_CONSIDER,
+];
 
 export function generateCandidates(count: number): Candidate[] {
   const list: Candidate[] = [];

@@ -83,7 +83,6 @@ const theme = createTheme({
       fontWeight: 600,
       lineHeight: "30px",
     },
-    // Used for sidebar logo
     h6: {
       fontSize: "22px",
       fontWeight: 700,
@@ -116,6 +115,9 @@ const theme = createTheme({
   },
   components: {
     MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
       styleOverrides: {
         root: {
           textTransform: "none",
@@ -167,7 +169,7 @@ const theme = createTheme({
     MuiTableCell: {
       styleOverrides: {
         root: {
-          fontFamily: "Inter, sans-serif",
+          fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           borderBottom: "1px solid #E5E7EB",
         },
       },
