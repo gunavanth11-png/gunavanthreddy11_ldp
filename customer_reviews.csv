@@ -1,0 +1,15 @@
+
+review,sentiment
+"This product is amazing! I love it.",positive
+"The quality is excellent and delivery was fast.",positive
+"I am very disappointed with this product.",negative
+"Terrible quality and very poor service.",negative
+"The product works perfectly.",positive
+"Great value for money and easy to use.",positive
+"It stopped working after one day.",negative
+"I would definitely recommend this item.",positive
+"The experience was frustrating and the support was unhelpful.",negative
+"Excellent design, reliable performance, and quick delivery.",positive
+"Not worth the price. I regret buying it.",negative
+"I am happy with my purchase.",positive
+REDACTED_API_KEY
