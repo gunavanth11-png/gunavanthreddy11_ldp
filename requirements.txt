@@ -1,0 +1,6 @@
+sentence-transformers
+chromadb
+qdrant-client
+pinecone
+weaviate-client
+python-dotenv
