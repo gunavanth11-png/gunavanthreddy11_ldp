@@ -1,0 +1,56 @@
+{
+  "summary": {
+    "termCap": "12 months",
+    "availableCredit": 880000,
+    "maxInterestRate": 12,
+    "totalAvailableAdvance": 880000
+  },
+  "contracts": [
+    {
+      "id": "1",
+      "name": "Contract 1",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 12000.25,
+      "totalFinanced": 0,
+      "totalAvailable": 126722.64
+    },
+    {
+      "id": "3",
+      "name": "Contract 3",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": 0,
+      "totalAvailable": 63360
+    },
+    {
+      "id": "4",
+      "name": "Contract 4",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": 0,
+      "totalAvailable": 63360
+    },
+    {
+      "id": "5",
+      "name": "Contract 5",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 5000,
+      "totalFinanced": 0,
+      "totalAvailable": 52800
+    },
+    {
+      "id": "6",
+      "name": "Contract 6",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 10000,
+      "totalFinanced": 0,
+      "totalAvailable": 105600
+    }
+  ],
+  "cashKicks": []
+}
