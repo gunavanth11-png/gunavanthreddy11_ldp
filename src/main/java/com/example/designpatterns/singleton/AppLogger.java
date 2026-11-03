@@ -8,14 +8,16 @@ public class AppLogger {
     private AppLogger() {
     }
 
-    public static AppLogger getInstance() {
+    public static synchronized AppLogger getInstance() {
+
         if (instance == null) {
             instance = new AppLogger();
         }
+
         return instance;
     }
 
     public void log(String message) {
-        System.out.println("LOG: " + message);
+        System.out.println("[LOG]: " + message);
     }
 }
