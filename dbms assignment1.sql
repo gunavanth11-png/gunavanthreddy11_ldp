@@ -60,6 +60,7 @@ WHERE co.country = 'India'
   AND cat.name = 'Sports'
 ORDER BY c.customer_id;
 -- Question 4
+-- Question 4
 SELECT DISTINCT
     c.customer_id,
     c.first_name,
@@ -82,7 +83,11 @@ JOIN film f
 JOIN film_actor fa
     ON f.film_id = fa.film_id
 JOIN actor act
-    ON fa.actor_id = act.actor_id;
+    ON fa.actor_id = act.actor_id
+WHERE co.country = 'Canada'
+  AND act.first_name = 'NICK'
+  AND act.last_name = 'WAHLBERG'
+ORDER BY c.customer_id;
 
 -- Question 5
 SELECT COUNT(DISTINCT fa.film_id) AS number_of_movies
