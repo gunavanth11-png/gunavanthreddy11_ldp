@@ -1,0 +1,51 @@
+export const colors = {
+  background: {
+    default: '#0F0E17',
+    paper: '#201f2e',
+    card: '#201f2e',
+    sidebar: '#121118',
+    elevation1: '#191823',
+    elevation2: '#262435',
+  },
+  primary: {
+    main: '#6C5DD3',
+    light: '#8374EB',
+    dark: '#5446B8',
+    contrastText: '#FFFFFF',
+    transparent: 'rgba(108, 93, 211, 0.15)',
+    border: 'rgba(108, 93, 211, 0.4)',
+  },
+  secondary: {
+    main: '#393552',
+    light: '#4C476B',
+    dark: '#2A263D',
+    contrastText: '#E8E7F0',
+  },
+  text: {
+    primary: '#E8E7F0',
+    secondary: '#A19DBC',
+    disabled: '#5B5575',
+    heading: '#FFFFFF',
+  },
+  status: {
+    availableBg: '#262435',
+    availableText: '#E8E7F0',
+    pendingBg: '#3B3322',
+    pendingText: '#FFC107',
+    successBg: 'rgba(60, 219, 163, 0.15)',
+    successText: '#3CDBA3',
+    warningBg: 'rgba(255, 122, 92, 0.15)',
+    warningText: '#FF7A5C',
+    warningHoverText: '#FF8B72',
+  },
+  border: {
+    default: '#262435',
+    subtle: '#1F1D2B',
+    light: '#363348',
+  },
+  icon: {
+    active: '#6C5DD3',
+    inactive: '#A19DBC',
+    boxBg: '#262435',
+  },
+};
