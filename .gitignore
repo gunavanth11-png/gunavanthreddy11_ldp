@@ -1,3 +1,10 @@
+# Maven / Java
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.kotlin
+
 # Logs
 logs
 *.log
@@ -13,9 +20,9 @@ dist-ssr
 *.local
 
 # Editor directories and files
+.idea/
 .vscode/*
 !.vscode/extensions.json
-.idea
 .DS_Store
 *.suo
 *.ntvs*
