@@ -1,0 +1,6 @@
+pymilvus
+sentence-transformers
+requests
+beautifulsoup4
+ddgs
+python-dotenv
