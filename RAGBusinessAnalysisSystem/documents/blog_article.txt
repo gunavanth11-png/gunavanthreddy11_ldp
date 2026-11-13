@@ -1,0 +1,20 @@
+Company: Microsoft
+Document Type: Official Blog Research Note
+Topic: Artificial Intelligence and Cloud Computing
+Source: https://blogs.microsoft.com/
+
+Microsoft's official blog publishes company updates,
+technology announcements, and articles about artificial
+intelligence, cloud computing, productivity, and security.
+
+Microsoft integrates AI capabilities into products and
+services, including Microsoft 365 and its cloud platform.
+
+Azure provides cloud infrastructure and services that
+organizations can use to build, deploy, and manage
+applications.
+
+This document is a research note about Microsoft's blog,
+not a verbatim copy of an individual blog article.
+Check the linked official blog for the original article
+and its publication date before citing a specific announcement.
