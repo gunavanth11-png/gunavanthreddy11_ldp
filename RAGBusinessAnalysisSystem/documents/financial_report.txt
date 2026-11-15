@@ -1,0 +1,21 @@
+Company: Microsoft
+Document Type: Financial Report Summary
+Reporting Period: Fiscal Year 2024
+Source: https://www.microsoft.com/investor/reports/ar24/index.html
+
+Microsoft reported revenue of approximately $245.1 billion
+for fiscal year 2024.
+
+Microsoft operates across three main reporting segments:
+Productivity and Business Processes, Intelligent Cloud,
+and More Personal Computing.
+
+Microsoft's business includes Microsoft 365, Azure,
+Windows, LinkedIn, Dynamics, gaming, and other software
+and cloud services.
+
+Azure and other cloud services are part of Microsoft's
+Intelligent Cloud business segment.
+
+Financial figures in this document refer to fiscal year 2024.
+Do not interpret them as current-year financial results.
