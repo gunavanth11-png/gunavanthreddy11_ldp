@@ -1,0 +1,4 @@
+pymilvus[milvus-lite]
+sentence-transformers
+python-dotenv
+openai
