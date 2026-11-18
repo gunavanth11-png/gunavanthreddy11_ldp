@@ -1,3 +1,16 @@
+ NewsSummarizationTool
+NewsSummarizationTool
+
+import sys
+from pathlib import Path
+
+
+SRC_DIR = Path(__file__).resolve().parent / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from news_summarizer.cli import main
+=======
  feature/prompt-engineering-sql
 
 import sqlite3
@@ -160,6 +173,7 @@ def main():
     except (ValueError, sqlite3.Error) as error:
         print("\nCould not complete the request:", error)
 
+main
 
 if __name__ == "__main__":
     main()
@@ -230,4 +244,9 @@ def main():
 
 
 if __name__ == "__main__":
+  NewsSummarizationTool
+    main()
+ main
+=======
     main() main
+ main

@@ -1,0 +1,44 @@
+[
+    {
+        "url": "https://example.com/news/fed-interest-rates-2024",
+        "date": "1st April 2024",
+        "articleType": "financial",
+        "title": "Federal Reserve Holds Benchmark Interest Rates Steady Amid Inflation Checks",
+        "content": "Federal Reserve officials announced on Monday that benchmark interest rates would remain unchanged between 5.25% and 5.50% following their policy review. Chairman Jerome Powell emphasized that while inflationary pressures have moderated from their 2022 peaks, the central bank requires additional confidence that inflation is moving sustainably toward its 2.0% annual target before cutting borrowing costs. Wall Street equity markets showed slight gains following the announcement, with the S&P 500 up 0.4% and tech stocks leading the rally. Economists noted that labor market resilience has afforded policymakers leeway to maintain restrictive monetary stances without triggering an immediate recessionary contraction."
+    },
+    {
+        "url": "https://example.com/news/tech-quantum-breakthrough",
+        "date": "15th May 2024",
+        "articleType": "technology",
+        "title": "Tech Consortium Announces Scalable Error-Corrected Quantum Processor",
+        "content": "Leading researchers and software consortium partners unveiled a novel 10,000-qubit quantum architecture equipped with real-time logical error mitigation. The prototype demonstrated fault-tolerant matrix factorization at room temperature for the first time, surpassing classical supercomputing thresholds by orders of magnitude. The development is anticipated to accelerate computational molecular dynamics for drug discovery and logistics optimization. Cloud access to developer software development kits is scheduled for general enterprise availability in early 2025."
+    },
+    {
+        "url": "https://example.com/news/fda-vaccine-approval",
+        "date": "22nd June 2024",
+        "articleType": "health",
+        "title": "FDA Approves Universal RSV Preventative Therapy for High-Risk Demographics",
+        "content": "The Food and Drug Administration granted official approval for an updated monoclonal antibody immunization targeting respiratory syncytial virus (RSV) in infants and immunocompromised adults. Clinical trial documentation showed an 82% decline in hospitalization rates across multi-center international hospital trials. Healthcare providers and pediatric networks praised the regulatory agency's expedited priority review process, anticipating broad distribution across domestic clinics prior to the winter respiratory illness surge."
+    },
+    {
+        "url": "https://example.com/news/renewable-grid-milestone",
+        "date": "10th August 2024",
+        "articleType": "science",
+        "title": "Global Clean Energy Grid Surpasses 35% Renewable Power Generation Milestone",
+        "content": "An international energy transition report published Wednesday confirmed that global electrical grids derived over 35% of their total power output from wind, solar, and hydroelectric sources over the preceding six months. Rapid cost reductions in lithium iron phosphate battery storage and grid-scale inverter technologies accelerated solar adoption across Europe, North America, and parts of Asia. Researchers emphasized that continued transmission modernization is critical to integrating intermittent renewable energy sources into regional distribution networks without relying on emergency fossil fuel peaker plants."
+    },
+    {
+        "url": "https://example.com/news/olympic-games-closing",
+        "date": "12th August 2024",
+        "articleType": "sports",
+        "title": "Paris Concludes 2024 Summer Olympics with Spectacular River Seine Closing Ceremony",
+        "content": "The 2024 Olympic Games concluded Sunday evening in Paris with a celebration of athletic achievement across 329 sporting events. Over 10,500 athletes representing 206 nations competed across venues ranging from the Palace of Versailles to the shores of French Polynesia. Organizers highlighted record-breaking viewership metrics and praised logistical achievements in carbon footprint reduction, marking one of the most environmentally sustainable Olympic tournaments in modern history."
+    },
+    {
+        "url": "https://example.com/news/global-ai-governance-pact",
+        "date": "5th October 2024",
+        "articleType": "politics",
+        "title": "World Leaders Sign Multilateral AI Safety and Governance Treaty",
+        "content": "Representatives from forty-five nations gathered at an international summit to ratify a binding framework establishing safety standards and risk disclosures for frontier artificial intelligence models. The multilateral agreement mandates independent third-party red-teaming audits, catastrophic risk mitigation plans, and verifiable digital watermarking for synthetic multimedia. While technological advocates commended the unified ethical baseline, industry analysts noted that harmonizing cross-border compliance enforcement remains an active legislative challenge."
+    }
+]
