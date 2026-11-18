@@ -1,6 +1,14 @@
+feature/vector-database-exploration
+sentence-transformers
+chromadb
+qdrant-client
+pinecone
+weaviate-client
+=======
 pymilvus
 sentence-transformers
 requests
 beautifulsoup4
 ddgs
+ main
 python-dotenv
