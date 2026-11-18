@@ -30,6 +30,7 @@ dist-ssr
 *.sln
 *.sw?
 
+ feature/vector-database-exploration
 ### Maven / Java ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -80,3 +81,13 @@ env/
 
 ### ChromaDB local data ###
 chroma_data/
+=======
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+*.db
+ main
