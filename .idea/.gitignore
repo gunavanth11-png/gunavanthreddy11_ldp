@@ -1,0 +1,10 @@
+# Default ignored files
+/../../VectorDatabaseExploration./.idea/shelf/
+/../../VectorDatabaseExploration./.idea/workspace.xml
+# Editor-based HTTP Client requests
+/../../VectorDatabaseExploration./.idea/httpRequests/
+# Ignored default folder with query files
+/../../VectorDatabaseExploration./.idea/queries/
+# Datasource local storage ignored files
+/../../VectorDatabaseExploration./.idea/dataSources/
+/../../VectorDatabaseExploration./.idea/dataSources.local.xml
