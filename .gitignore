@@ -60,7 +60,24 @@ build/
 !.vscode/extensions.json
 main
 .DS_Store
+NewsSummarizationTool
 .env
 .venv/
 __pycache__/
 news_data.json
+=======
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+*.db
+main
