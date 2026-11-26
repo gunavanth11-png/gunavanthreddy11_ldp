@@ -9,22 +9,25 @@ export interface LinkTextProps {
   sx?: SxProps<Theme>;
 }
 
+const defaultLinkStyles: SxProps<Theme> = (theme) => ({
+  color: theme.palette.brand.primaryLink,
+  fontWeight: 500,
+  fontSize: theme.typography.body2.fontSize,
+  fontFamily: theme.typography.fontFamily,
+  cursor: "pointer",
+});
+
 const LinkText = ({ children, href = "#", onClick, sx }: LinkTextProps) => {
+  const resolvedStyles = sx
+    ? [defaultLinkStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : defaultLinkStyles;
+
   return (
     <Link
       href={href}
       onClick={onClick}
       underline="hover"
-      sx={[
-        (theme) => ({
-          color: theme.palette.brand.primaryLink,
-          fontWeight: 500,
-          fontSize: theme.typography.body2.fontSize,
-          fontFamily: theme.typography.fontFamily,
-          cursor: "pointer",
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
+      sx={resolvedStyles}
     >
       {children}
     </Link>

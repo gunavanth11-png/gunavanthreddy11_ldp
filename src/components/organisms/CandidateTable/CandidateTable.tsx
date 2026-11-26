@@ -12,40 +12,40 @@ export interface CandidateTableProps {
   sx?: SxProps<Theme>;
 }
 
+const tableContainerStyles: SxProps<Theme> = (theme) => ({
+  flex: 1,
+  overflowY: "auto",
+  overflowX: "hidden",
+  "&::-webkit-scrollbar": {
+    width: "6px",
+  },
+  "&::-webkit-scrollbar-track": {
+    background: "transparent",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: theme.palette.customBorder.dark,
+    borderRadius: "4px",
+  },
+  "&::-webkit-scrollbar-thumb:hover": {
+    background: theme.palette.text.secondary,
+  },
+});
+
+const tableStyles: SxProps<Theme> = {
+  width: "100%",
+  tableLayout: "fixed",
+  borderCollapse: "separate",
+  borderSpacing: 0,
+};
+
 const CandidateTable = ({ rows, onRowClick, sx }: CandidateTableProps) => {
+  const containerStyles = sx
+    ? [tableContainerStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : tableContainerStyles;
+
   return (
-    <TableContainer
-      sx={[
-        (theme) => ({
-          flex: 1,
-          overflowY: "auto",
-          overflowX: "hidden",
-          "&::-webkit-scrollbar": {
-            width: "6px",
-          },
-          "&::-webkit-scrollbar-track": {
-            background: "transparent",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            background: theme.palette.customBorder.dark,
-            borderRadius: "4px",
-          },
-          "&::-webkit-scrollbar-thumb:hover": {
-            background: theme.palette.text.secondary,
-          },
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-    >
-      <Table
-        stickyHeader
-        sx={{
-          width: "100%",
-          tableLayout: "fixed",
-          borderCollapse: "separate",
-          borderSpacing: 0,
-        }}
-      >
+    <TableContainer sx={containerStyles}>
+      <Table stickyHeader sx={tableStyles}>
         <TableHeaderRow />
         <TableBody>
           {rows.map((candidate) => (

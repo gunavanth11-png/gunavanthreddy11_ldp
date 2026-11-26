@@ -12,57 +12,65 @@ export interface NavItemProps {
   sx?: SxProps<Theme>;
 }
 
+const getNavItemButtonStyles = (isActive: boolean): SxProps<Theme> => (theme) => ({
+  height: 48,
+  px: 1.5,
+  borderRadius: `${theme.shape.borderRadius}px`,
+  mb: 0.5,
+  display: "flex",
+  alignItems: "center",
+  gap: 1.5,
+  backgroundColor: isActive ? theme.palette.brand.activeNavBg : "transparent",
+  color: isActive ? theme.palette.brand.activeNavText : theme.palette.text.primary,
+  transition: "0.2s ease",
+  "&:hover": {
+    backgroundColor: isActive
+      ? theme.palette.brand.activeNavBg
+      : theme.palette.background.default,
+  },
+  "&.Mui-selected": {
+    backgroundColor: theme.palette.brand.activeNavBg,
+    color: theme.palette.brand.activeNavText,
+    "&:hover": {
+      backgroundColor: theme.palette.brand.activeNavBg,
+    },
+  },
+});
+
+const getNavItemIconStyles = (isActive: boolean): SxProps<Theme> => (theme) => ({
+  minWidth: "auto",
+  color: isActive ? theme.palette.brand.activeNavText : theme.palette.text.secondary,
+});
+
+const getNavItemTextStyles = (isActive: boolean): SxProps<Theme> => ({
+  "& .MuiListItemText-primary": {
+    fontSize: "15px",
+    fontWeight: isActive ? 600 : 400,
+    color: "inherit",
+    fontFamily: "inherit",
+  },
+});
+
 const NavItem = ({ icon, label, isActive, onClick, sx }: NavItemProps) => {
+  const buttonStyles = [
+    getNavItemButtonStyles(isActive),
+    ...(Array.isArray(sx) ? sx : sx ? [sx] : []),
+  ];
+  const iconStyles = getNavItemIconStyles(isActive);
+  const textStyles = getNavItemTextStyles(isActive);
+
   return (
     <ListItemButton
       selected={isActive}
       onClick={onClick}
-      sx={[
-        (theme) => ({
-          height: 48,
-          px: 1.5,
-          borderRadius: `${theme.shape.borderRadius}px`,
-          mb: 0.5,
-          display: "flex",
-          alignItems: "center",
-          gap: 1.5,
-          backgroundColor: isActive ? theme.palette.brand.activeNavBg : "transparent",
-          color: isActive ? theme.palette.brand.activeNavText : theme.palette.text.primary,
-          transition: "0.2s ease",
-          "&:hover": {
-            backgroundColor: isActive
-              ? theme.palette.brand.activeNavBg
-              : theme.palette.background.default,
-          },
-          "&.Mui-selected": {
-            backgroundColor: theme.palette.brand.activeNavBg,
-            color: theme.palette.brand.activeNavText,
-            "&:hover": {
-              backgroundColor: theme.palette.brand.activeNavBg,
-            },
-          },
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
+      sx={buttonStyles}
     >
-      <ListItemIcon
-        sx={(theme) => ({
-          minWidth: "auto",
-          color: isActive ? theme.palette.brand.activeNavText : theme.palette.text.secondary,
-        })}
-      >
+      <ListItemIcon sx={iconStyles}>
         {icon}
       </ListItemIcon>
       <ListItemText
         primary={label}
-        sx={{
-          "& .MuiListItemText-primary": {
-            fontSize: "15px",
-            fontWeight: isActive ? 600 : 400,
-            color: "inherit",
-            fontFamily: "inherit",
-          },
-        }}
+        sx={textStyles}
       />
     </ListItemButton>
   );

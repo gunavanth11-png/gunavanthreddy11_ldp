@@ -3,8 +3,11 @@ import type { SxProps, Theme } from "@mui/material/styles";
 import type { ReactNode } from "react";
 
 export interface AppButtonProps {
-  text: string;
+  text?: string;
+  children?: ReactNode;
   icon?: ReactNode;
+  variant?: "text" | "outlined" | "contained";
+  color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
   filled?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -13,37 +16,28 @@ export interface AppButtonProps {
 
 const AppButton = ({
   text,
+  children,
   icon,
+  variant,
+  color,
   filled = false,
   disabled = false,
   onClick,
   sx,
 }: AppButtonProps) => {
+  const resolvedVariant = variant ?? (filled ? "contained" : "outlined");
+  const resolvedColor = color ?? (filled ? "primary" : "inherit");
+
   return (
     <Button
-      variant={filled ? "contained" : "outlined"}
-      color={filled ? "primary" : "inherit"}
+      variant={resolvedVariant}
+      color={resolvedColor}
       startIcon={icon}
       onClick={onClick}
       disabled={disabled}
-      sx={[
-        (theme) => ({
-          borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
-          borderColor: filled ? undefined : theme.palette.customBorder.dark,
-          color: filled
-            ? theme.palette.primary.contrastText
-            : theme.palette.text.primary,
-          "&:hover": {
-            borderColor: filled ? undefined : theme.palette.text.secondary,
-            backgroundColor: filled
-              ? theme.palette.primary.dark
-              : theme.palette.background.default,
-          },
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
+      sx={sx}
     >
-      {text}
+      {text ?? children}
     </Button>
   );
 };

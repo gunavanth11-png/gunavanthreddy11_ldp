@@ -4,6 +4,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import type { SxProps, Theme } from "@mui/material/styles";
 import AppIconButton from "../../atoms/AppIconButton/AppIconButton";
 import AppButton from "../../atoms/AppButton/AppButton";
+import { DEFAULT_MAX_VISIBLE_PAGES, ARIA_LABELS } from "../../../utils/constants";
 
 export interface PaginationControlsProps {
   currentPage: number;
@@ -13,11 +14,62 @@ export interface PaginationControlsProps {
   sx?: SxProps<Theme>;
 }
 
+const paginationContainerStyles: SxProps<Theme> = {
+  display: "flex",
+  alignItems: "center",
+  gap: "4px",
+};
+
+const chevronIconStyles: SxProps<Theme> = {
+  fontSize: 20,
+};
+
+const paginationIconButtonStyles: SxProps<Theme> = (theme) => ({
+  width: 32,
+  height: 32,
+  minWidth: 32,
+  borderRadius: `${theme.shape.borderRadius}px`,
+  color: theme.palette.text.primary,
+  "&:hover": {
+    backgroundColor: theme.palette.background.default,
+  },
+  "&.Mui-disabled": {
+    color: theme.palette.customBorder.dark,
+  },
+});
+
+const getPageButtonStyles = (isActive: boolean): SxProps<Theme> => (theme) => ({
+  minWidth: 32,
+  width: 32,
+  height: 32,
+  px: 0,
+  borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
+  fontSize: theme.typography.body2.fontSize,
+  fontWeight: isActive ? 600 : 400,
+  border: "none",
+  ...(isActive
+    ? {
+        backgroundColor: theme.palette.brand.activeNavBg,
+        color: theme.palette.brand.activeNavText,
+        "&:hover": {
+          backgroundColor: theme.palette.brand.activeNavBg,
+        },
+      }
+    : {
+        backgroundColor: "transparent",
+        color: theme.palette.text.primary,
+        "&:hover": {
+          backgroundColor: theme.palette.background.default,
+          color: theme.palette.text.primary,
+        },
+      }),
+});
+
 const PaginationControls = ({
   currentPage,
   totalPages,
   onPageChange,
-  maxVisiblePages = 3,
+  maxVisiblePages = DEFAULT_MAX_VISIBLE_PAGES,
   sx,
 }: PaginationControlsProps) => {
   const safeTotalPages = Math.max(1, totalPages);
@@ -34,23 +86,18 @@ const PaginationControls = ({
     pageNumbers.push(i);
   }
 
+  const containerStyles = sx
+    ? [paginationContainerStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : paginationContainerStyles;
+
   return (
-    <Box
-      sx={[
-        {
-          display: "flex",
-          alignItems: "center",
-          gap: "4px",
-        },
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-    >
+    <Box sx={containerStyles}>
       <AppIconButton
-        icon={<ChevronLeftIcon sx={{ fontSize: 20 }} />}
+        icon={<ChevronLeftIcon sx={chevronIconStyles} />}
         disabled={currentPage <= 1}
-        borderless
         onClick={() => onPageChange(currentPage - 1)}
-        ariaLabel="Previous page"
+        ariaLabel={ARIA_LABELS.PREVIOUS_PAGE}
+        sx={paginationIconButtonStyles}
       />
 
       {pageNumbers.map((page) => (
@@ -58,41 +105,16 @@ const PaginationControls = ({
           key={page}
           text={String(page)}
           onClick={() => onPageChange(page)}
-          sx={(theme) => ({
-            minWidth: 32,
-            width: 32,
-            height: 32,
-            px: 0,
-            borderRadius: `${(theme.shape.borderRadius as number) - 2}px`,
-            fontSize: theme.typography.body2.fontSize,
-            fontWeight: page === currentPage ? 600 : 400,
-            border: "none",
-            ...(page === currentPage
-              ? {
-                  backgroundColor: theme.palette.brand.activeNavBg,
-                  color: theme.palette.brand.activeNavText,
-                  "&:hover": {
-                    backgroundColor: theme.palette.brand.activeNavBg,
-                  },
-                }
-              : {
-                  backgroundColor: "transparent",
-                  color: theme.palette.text.primary,
-                  "&:hover": {
-                    backgroundColor: theme.palette.background.default,
-                    color: theme.palette.text.primary,
-                  },
-                }),
-          })}
+          sx={getPageButtonStyles(page === currentPage)}
         />
       ))}
 
       <AppIconButton
-        icon={<ChevronRightIcon sx={{ fontSize: 20 }} />}
+        icon={<ChevronRightIcon sx={chevronIconStyles} />}
         disabled={currentPage >= safeTotalPages}
-        borderless
         onClick={() => onPageChange(currentPage + 1)}
-        ariaLabel="Next page"
+        ariaLabel={ARIA_LABELS.NEXT_PAGE}
+        sx={paginationIconButtonStyles}
       />
     </Box>
   );

@@ -13,6 +13,17 @@ export interface TableFooterProps {
   sx?: SxProps<Theme>;
 }
 
+const footerContainerStyles: SxProps<Theme> = (theme) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  px: 3,
+  py: 1.5,
+  minHeight: 64,
+  borderTop: `1px solid ${theme.palette.divider}`,
+  backgroundColor: theme.palette.background.paper,
+});
+
 const TableFooter = ({
   total,
   perPage,
@@ -22,22 +33,12 @@ const TableFooter = ({
   onPageChange,
   sx,
 }: TableFooterProps) => {
+  const containerStyles = sx
+    ? [footerContainerStyles, ...(Array.isArray(sx) ? sx : [sx])]
+    : footerContainerStyles;
+
   return (
-    <Box
-      sx={[
-        (theme) => ({
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          px: 3,
-          py: 1.5,
-          minHeight: 64,
-          borderTop: `1px solid ${theme.palette.divider}`,
-          backgroundColor: theme.palette.background.paper,
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-    >
+    <Box sx={containerStyles}>
       <ResultsSummary
         total={total}
         perPage={perPage}
