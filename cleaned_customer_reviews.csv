@@ -1,0 +1,13 @@
+review,sentiment,cleaned_review,word_count
+This product is amazing! I love it.,positive,this product is amazing i love it,7
+The quality is excellent and delivery was fast.,positive,the quality is excellent and delivery was fast,8
+I am very disappointed with this product.,negative,i am very disappointed with this product,7
+Terrible quality and very poor service.,negative,terrible quality and very poor service,6
+The product works perfectly.,positive,the product works perfectly,4
+Great value for money and easy to use.,positive,great value for money and easy to use,8
+It stopped working after one day.,negative,it stopped working after one day,6
+I would definitely recommend this item.,positive,i would definitely recommend this item,6
+The experience was frustrating and the support was unhelpful.,negative,the experience was frustrating and the support was unhelpful,9
+"Excellent design, reliable performance, and quick delivery.",positive,excellent design reliable performance and quick delivery,7
+Not worth the price. I regret buying it.,negative,not worth the price i regret buying it,8
+I am happy with my purchase.,positive,i am happy with my purchase,6

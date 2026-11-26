@@ -1,0 +1,31 @@
+.profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-card-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-card-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.profile-card-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.profile-card-logout:hover {
+  background-color: #faf9ff;
+  border-radius: 8px;
+}

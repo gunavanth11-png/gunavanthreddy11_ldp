@@ -1,0 +1,22 @@
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.icon-active {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(90%) saturate(3000%);
+}
+
+.icon-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.icon-logout {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
