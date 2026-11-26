@@ -1,9 +1,14 @@
+ NewsSummarizationTool
+
 # Maven / Java
+ main
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 .kotlin
+ NewsSummarizationTool
+=======
 
 # Logs
 logs
@@ -13,17 +18,54 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+ main
 
-node_modules
-dist
-dist-ssr
-*.local
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
 
+ NewsSummarizationTool
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+=======
 # Editor directories and files
 .idea/
 .vscode/*
 !.vscode/extensions.json
+main
 .DS_Store
+NewsSummarizationTool
+.env
+.venv/
+__pycache__/
+news_data.json
+=======
 *.suo
 *.ntvs*
 *.njsproj
@@ -90,4 +132,8 @@ __pycache__/
 *.pyd
 .env
 *.db
+ NewsSummarizationTool
+main
+=======
+ main
  main

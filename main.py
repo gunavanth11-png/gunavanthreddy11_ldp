@@ -1,3 +1,17 @@
+ NewsSummarizationTool
+ NewsSummarizationTool
+NewsSummarizationTool
+
+import sys
+from pathlib import Path
+
+
+SRC_DIR = Path(__file__).resolve().parent / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from news_summarizer.cli import main
+
  feature/text-sql-task
  feature/text-sql-task
 
@@ -390,6 +404,7 @@ def main():
         print("Tip: You can ask custom questions by running:")
         print('  python main.py "your question here"')
         print("=" * 72)
+ main
 =======
  feature/prompt-engineering-sql
 
@@ -553,6 +568,10 @@ def main():
     except (ValueError, sqlite3.Error) as error:
         print("\nCould not complete the request:", error)
 
+NewsSummarizationTool
+main
+=======
+ main
  main
 
 if __name__ == "__main__":
@@ -624,9 +643,17 @@ def main():
 
 
 if __name__ == "__main__":
+ NewsSummarizationTool
+  NewsSummarizationTool
+=======
   feature/text-sql-task
+  main
     main()
  main
 =======
     main() main
+ NewsSummarizationTool
+ main
+=======
+main
 main
